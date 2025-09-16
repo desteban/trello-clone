@@ -1,0 +1,36 @@
+button {
+  transition: transform 300ms ease-out, background-color 150ms ease-in;
+  font-weight: 600;
+}
+
+button:active {
+  transform: scale(.95);
+}
+
+
+.primary.full {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.primary.outline {
+  outline-color: var(--primary);
+}
+
+.red.full {
+  background-color: var(--color-red-700);
+  color: var(--color-white);
+}
+
+.red.outline {
+  outline-color: var(--color-red-700);
+
+}
+
+.red:hover {
+  background-color: var(--color-red-300);
+}

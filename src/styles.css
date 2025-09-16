@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import './styles/colors.css';
 
 h1,
 .h1 {
@@ -33,4 +34,30 @@ h6,
 
 p {
   max-width: 80ch;
+}
+
+
+label.required::after {
+  content: '*';
+  color: red;
+}
+
+input {
+  accent-color: var(--primary);
+  caret-color: var(--primary);
+  border-radius: var(--rounded);
+  border-color: var(--primary);
+}
+
+input:focus {
+  outline-color: var(--primary);
+}
+
+::placeholder {
+  color: var(--color-gray-400);
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: var(--rounded);
 }
