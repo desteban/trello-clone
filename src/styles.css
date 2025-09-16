@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+h1,
+.h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight;
+}
+
+h2,
+.h2 {
+  @apply text-3xl md:text-4xl font-bold text-gray-800 mt-8 mb-4;
+}
+
+h3,
+.h3 {
+  @apply text-2xl font-semibold text-gray-700 mt-6 mb-2;
+}
+
+h4,
+.h4 {
+  @apply text-xl font-medium text-gray-600 mt-4;
+}
+
+h5,
+.h5 {
+  @apply text-lg font-medium text-gray-500 mt-3;
+}
+
+h6,
+.h6 {
+  @apply text-base font-medium text-gray-400 mt-2
+}
+
+p {
+  max-width: 80ch;
+}
