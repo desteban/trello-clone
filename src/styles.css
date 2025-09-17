@@ -36,12 +36,6 @@ p {
   max-width: 80ch;
 }
 
-
-label.required::after {
-  content: '*';
-  color: red;
-}
-
 input {
   accent-color: var(--primary);
   caret-color: var(--primary);

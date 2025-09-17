@@ -4,17 +4,24 @@
       <img src="/assets/trello/png/Trello_logo_light.png" alt="Logo de trello" />
     </picture>
     <h1 class="h4 text-center">Inicia sesión para continuar</h1>
-    <form (submit)="Submit($event)">
-      <div>
-        <label class="required" for="username">Correo</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          placeholder="Tu correo electrónico"
-          class="px-2 py-1 block w-full border rounded-sm ring-[var(--primary)]"
-        />
-      </div>
+    <form (submit)="Submit($event)" [formGroup]="loginForm" class="flex gap-2 flex-col">
+      <component-input-field
+        id="username"
+        label="Correo"
+        placeholder="tu-correo@mail.com"
+        formControlName="username"
+        [required]="true"
+      />
+
+      <component-input-field
+        id="password"
+        name="password"
+        label="Contraseña"
+        placeholder="tu contraseña"
+        formControlName="password"
+        [required]="true"
+        [type]="InputType.password"
+      />
 
       <component-button type="submit" class="w-full my-3" [color]="'primary'"
         >Continuar</component-button
