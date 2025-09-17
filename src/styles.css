@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @import './styles/colors.css';
 
+body {
+  min-height: 100dvh;
+}
+
 h1,
 .h1 {
   @apply text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight;

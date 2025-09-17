@@ -1,28 +1,28 @@
-<div class="">
-  <label>
-    <span [class.required]="required">
-      {{ label }}
-    </span>
+<label>
+  <span [class.required]="required">
+    {{ label }}
+  </span>
 
-    @if(helpText){
-    <span [id]="id + '-help'" class="help-text">{{ helpText }}</span>
-    }
-    <!--  -->
-    <input
-      [id]="id"
-      [name]="name || id"
-      [placeholder]="placeholder"
-      [type]="type"
-      [value]="currentValue"
-      (input)="handleInput($event)"
-      [disabled]="isDisabled"
-      (blur)="onBlur()"
-      [attr.aria-describedby]="helpText ? id + '-help' : null"
-      [attr.aria-invalid]="error ? 'true' : null"
-      [attr.aria-required]="required"
-    />
-  </label>
-  @if ( error ) {
-  <span class="text-red-400 block">{{ error }}</span>
+  @if(helpText){
+  <span [id]="id + '-help'" class="help-text">{{ helpText }}</span>
   }
-</div>
+  <!--  -->
+  <input
+    [id]="id"
+    [name]="name || id"
+    [placeholder]="placeholder"
+    [type]="type"
+    [value]="currentValue"
+    (input)="handleInput($event)"
+    [disabled]="isDisabled"
+    (blur)="onBlur()"
+    [autocomplete]="autoComplete"
+    [attr.aria-describedby]="helpText ? id + '-help' : null"
+    [attr.aria-invalid]="error ? 'true' : null"
+    [attr.aria-required]="required"
+    [attr.aria-errormessage]="id + '-error'"
+  />
+</label>
+@if ( error ) {
+<span [id]="id + '-error'" class="text-red-400 block">{{ error }}</span>
+}

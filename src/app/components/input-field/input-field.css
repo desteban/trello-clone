@@ -1,9 +1,14 @@
+label {
+  width: 100%;
+}
+
 input {
   padding: 4px 8px;
   display: block;
   width: 100%;
   border: 1px solid var(--color-blue-950);
   border-radius: var(--rounded);
+  width: 100%;
 }
 
 .required::after {

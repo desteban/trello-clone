@@ -17,6 +17,20 @@ export class Login {
     username: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
+  private LoginFormErrors: { [key: string]: string } = {
+    required: 'El campo es obligatorio',
+    email: 'Debe ingresar un correo electrónico valido',
+  };
+
+  getErrorsField(controlName: string): string | null {
+    const control = this.loginForm.get(controlName);
+    if (!control || !control.errors || !control.touched) return null;
+
+    const errorsKey = Object.keys(control.errors)[0];
+    if (!errorsKey) return null;
+
+    return this.LoginFormErrors[errorsKey] ?? null;
+  }
 
   get InputType() {
     return InputFieldVariants;

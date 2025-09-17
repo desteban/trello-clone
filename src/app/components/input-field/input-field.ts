@@ -33,9 +33,10 @@ export class InputField implements ControlValueAccessor {
   @Input({ required: true }) placeholder!: string;
   @Input({ required: false }) label: string = '';
   @Input({ required: false }) type: InputFieldVariants = InputFieldVariants.text;
-  @Input({ required: false }) error: string | undefined = undefined;
+  @Input({ required: false }) error: string | undefined | null = undefined;
   @Input({ required: false }) required: boolean = false;
   @Input({ required: false }) helpText: string | undefined = undefined;
+  @Input({ required: false }) autoComplete: string | null | undefined = undefined;
 
   private _currentValue: string = '';
   private _disabled: boolean = false;
