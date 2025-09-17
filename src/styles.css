@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @import './styles/colors.css';
 
+html {
+  background-color: #e9e5e5;
+}
+
 body {
   min-height: 100dvh;
 }
