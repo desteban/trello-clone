@@ -3,7 +3,7 @@
 @import './styles/colors.css';
 
 html {
-  background-color: #e9e5e5;
+  background-color: var(--background);
 }
 
 body {

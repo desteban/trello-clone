@@ -4,7 +4,12 @@
   margin-bottom: calc(0.75rem * 0);
   border-radius: 0.5rem;
   background-color: rgb(255, 255, 255);
-  padding: 0.75rem;
+  padding: 0.75rem 0px;
+  font-size: 14px;
+}
+
+.space-horizontal {
+  padding-inline: 0.75rem;
 }
 
 .panel .section {
@@ -12,10 +17,20 @@
   padding-bottom: 8px;
 }
 
+.section li {
+  cursor: pointer;
+  padding: 4px;
+  transition: background-color .3s ease-out;
+  padding-inline: 0.75rem;
+}
+
+.section li:hover {
+  background-color: rgb(215, 216, 216);
+}
+
 .panel>.section:not(:last-child) {
   border-bottom: 1px solid lightgray;
   margin-bottom: 12px;
-
 }
 
 .title-section {
@@ -24,5 +39,5 @@
   line-height: var(--tw-leading, var(--text-base--line-height));
   --tw-font-weight: var(--font-weight-medium);
   font-weight: var(--font-weight-medium);
-  color: var(--color-gray-400);
+  color: var(--color-gray-600);
 }

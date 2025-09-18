@@ -1,7 +1,14 @@
 <!-- This button triggers the overlay and is it's origin -->
-<button (click)="toggleOpen()" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+<div
+  class="trigger"
+  [ngClass]="class"
+  (click)="toggleOpen()"
+  type="button"
+  cdkOverlayOrigin
+  #trigger="cdkOverlayOrigin"
+>
   <ng-content select="[trigger]"></ng-content>
-</button>
+</div>
 
 <!-- This template displays the overlay content and is connected to the button -->
 <ng-template

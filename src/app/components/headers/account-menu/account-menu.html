@@ -10,41 +10,45 @@
     </button>
   </div>
 
-  <section panel class="panel">
-    <h2 class="h6">Cuenta</h2>
-    <div class="flex space-x-2 items-center">
-      <img
-        class="size-14 rounded-full"
-        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-        alt="user photo"
-      />
-      <div>
-        <p>Nombre Usuario</p>
-        <p>mail@mail.com</p>
+  <section panel class="panel shadow-lg border border-gray-200 mx-3">
+    <div class="space-horizontal">
+      <h2 class="title-section">CUENTA</h2>
+      <div class="flex space-x-2 items-center">
+        <img
+          class="size-14 rounded-full"
+          src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+          alt="user photo"
+        />
+        <div>
+          <p>Nombre Usuario</p>
+          <p class="text-gray-600">mail@mail.com</p>
+        </div>
       </div>
     </div>
 
     <div class="section">
       <ul>
         <li>Cambiar cuentas</li>
-        <li>Gestionar cuenta</li>
+        <li>Gestionar cuenta <fa-icon [icon]="icons.link"></fa-icon></li>
       </ul>
     </div>
 
     <div class="section">
-      <h2 class="title-section">TRELLO</h2>
+      <h2 class="title-section space-horizontal">TRELLO</h2>
       <ul>
         <li>Perfil y visibilidad</li>
         <li>Actividad</li>
         <li>Tarjetas</li>
         <li>Ajustes</li>
-        <li>Temas</li>
+        <li>
+          <header-theme-menu />
+        </li>
       </ul>
     </div>
 
     <div class="section">
       <ul>
-        <li>Crear espacio de trabajo</li>
+        <li><fa-icon [icon]="icons.users"></fa-icon> espacio de trabajo</li>
       </ul>
     </div>
 
