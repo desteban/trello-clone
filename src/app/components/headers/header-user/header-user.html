@@ -1,10 +1,10 @@
 <header>
-  <nav class="border-gray-200 shadow-md">
+  <nav class="border-gray-200 shadow-md md:px-3">
     <div class="flex justify-between items-center">
       <div class="flex items-center">
         <a routerLink="/">
-          <picture class="block aspect-video h-8">
-            <source media="(min-width: 1024px)" srcset="assets/trello/png/Trello_logo_dark.png" />
+          <picture class="block aspect-video h-8 lg:h-11">
+            <source media="(min-width: 1024px)" srcset="assets/trello/png/Trello_logo_light.png" />
             <img
               src="assets/trello/svg/Trello_icon.svg"
               alt="Logo Trello"
@@ -41,18 +41,8 @@
             placeholder="Buscar"
           />
         </label>
-        <component-overlay>
-          <div trigger>
-            <component-button>Crear</component-button>
-          </div>
 
-          <div panel class="p-4 border border-gray-200 bg-white">
-            <ul>
-              <li>Crear tablero</li>
-              <li>Empieza con una plantilla</li>
-            </ul>
-          </div>
-        </component-overlay>
+        <navbar-create-menu />
       </div>
 
       <div class="flex items-center">

@@ -1,11 +1,5 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import {
-  OverlayContainer,
-  OverlayModule,
-  Overlay as Ov,
-  ConnectedPosition,
-  FlexibleConnectedPositionStrategyOrigin,
-} from '@angular/cdk/overlay';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { OverlayContainer, OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,19 +9,33 @@ import { CommonModule } from '@angular/common';
   styleUrl: './overlay.css',
   providers: [{ provide: OverlayContainer }],
 })
-export class Overlay {
+export class Overlay implements OnChanges {
+  @Input({ required: false }) isOpen: boolean = false;
   @Input({ required: false }) class: null | string | undefined = undefined;
   @Input() fullScreen: boolean = false;
   @Output() click = new EventEmitter<boolean>();
-  isOpen: boolean = false;
-  overlay = inject(Ov);
+  private _isOpen: boolean = this.isOpen;
 
-  toggleOpen(): void {
-    this.isOpen = !this.isOpen;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isOpen']) {
+      this._isOpen = changes['isOpen'].currentValue;
+    }
   }
 
-  closePanel(): void {
-    this.isOpen = false;
-    this.click.emit(this.isOpen);
+  get currentOpen(): boolean {
+    return this._isOpen;
+  }
+
+  toggleOpen(): void {
+    this._isOpen = !this._isOpen;
+  }
+
+  public closePanel(): void {
+    this._isOpen = false;
+    this.click.emit(this._isOpen);
+  }
+
+  getClassFull(): string {
+    return this.fullScreen ? 'top-full-screen' : '';
   }
 }

@@ -1,1 +1,27 @@
-<p>create-menu works!</p>
+<component-overlay>
+  <div trigger>
+    <component-button>Crear</component-button>
+  </div>
+
+  <div panel class="p-4 border border-gray-200 bg-white w-full h-full max-w-80">
+    <ul class="space-y-3 text-sm">
+      <li>
+        <button class="text-left cursor-pointer">
+          <span> <fa-icon [icon]="icons.table"></fa-icon> Crear tablero</span>
+          <p class="text-sm text-gray-600">
+            Un tablero es un conjunto de tarjetas ordenadas en listas. Úsalo para gestionar
+            proyectos, realizar un seguimiento de la información u organizar cualquier actividad.
+          </p>
+        </button>
+      </li>
+      <li>
+        <button class="text-left cursor-pointer">
+          <span><fa-icon [icon]="icons.template"></fa-icon> Empieza con una plantilla</span>
+          <p class="text-sm text-gray-600">
+            Ponte en marcha más rápido con una plantilla de tablero.
+          </p>
+        </button>
+      </li>
+    </ul>
+  </div>
+</component-overlay>

@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { AccountMenu } from '../account-menu/account-menu';
-import { Button } from '../../button/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Overlay } from "../../overlay/overlay";
+import { Overlay } from '../../overlay/overlay';
+import { CreateMenu } from '../create-menu/create-menu';
 @Component({
   selector: 'component-header-user',
-  imports: [AccountMenu, Button, FontAwesomeModule, Overlay],
+  imports: [AccountMenu, FontAwesomeModule, Overlay, CreateMenu],
   templateUrl: './header-user.html',
   styleUrl: './header-user.css',
 })
