@@ -6,9 +6,6 @@ html {
   background-color: var(--background);
 }
 
-body {
-  min-height: 100dvh;
-}
 
 h1,
 .h1 {
