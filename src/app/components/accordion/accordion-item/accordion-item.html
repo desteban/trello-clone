@@ -1,0 +1,34 @@
+<cdk-accordion-item #accordionItem="cdkAccordionItem">
+  <button
+    class="accordion-trigger"
+    (click)="accordionItem.toggle()"
+    tabindex="0"
+    [attr.id]="idTrigger"
+    [attr.aria-expanded]="accordionItem.expanded"
+    [ngClass]="class"
+    [attr.aria-controls]="idBody"
+  >
+    <div class="">
+      <ng-content select="[trigger]"></ng-content>
+    </div>
+    <div>
+      <fa-icon
+        [icon]="icons.chevronDown"
+        class="icon"
+        [class.open]="accordionItem.expanded === true"
+      ></fa-icon>
+    </div>
+  </button>
+
+  @if(accordionItem.expanded){
+  <div
+    class="accordion-body"
+    role="region"
+    [style.display]="accordionItem.expanded ? '' : 'none'"
+    [attr.id]="idBody"
+    [attr.aria-labelledby]="idTrigger"
+  >
+    <ng-content select="[body]"></ng-content>
+  </div>
+  }
+</cdk-accordion-item>

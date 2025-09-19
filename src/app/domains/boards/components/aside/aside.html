@@ -16,5 +16,44 @@
 
   <section aria-describedby="espacios-trabajo">
     <h2 id="espacios-trabajo" class="h6">Espacios de trabajo</h2>
+
+    <div>
+      <component-accordion-container>
+        <component-accordion-item id="proyectos">
+          <div trigger>Proyectos</div>
+
+          <div body class="py-1">
+            <ul class="work-space-list">
+              <li>
+                <a href="#" class="work-space-list-item">
+                  <div>
+                    <fa-icon [icon]="icons.table"></fa-icon>
+                  </div>
+                  <span class="list-title">Tableros</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="work-space-list-item">
+                  <div>
+                    <fa-icon [icon]="icons.users"></fa-icon>
+                  </div>
+                  <span class="list-title">Miembros</span>
+
+                  <div>
+                    <fa-icon [icon]="icons.plus"></fa-icon>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="work-space-list-item">
+                  <div><fa-icon [icon]="icons.gear"></fa-icon></div>
+                  <span class="list-title">Configuration</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </component-accordion-item>
+      </component-accordion-container>
+    </div>
   </section>
 </aside>

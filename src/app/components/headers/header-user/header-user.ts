@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
 import { AccountMenu } from '../account-menu/account-menu';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faMagnifyingGlass,
-  faBell,
-  faBullhorn,
-  faQuestion,
-} from '@fortawesome/free-solid-svg-icons';
 import { Overlay } from '../../overlay/overlay';
 import { CreateMenu } from '../create-menu/create-menu';
+import { AppIcons } from '@shared/AppIcons';
 
 @Component({
   selector: 'component-header-user',
@@ -17,10 +12,5 @@ import { CreateMenu } from '../create-menu/create-menu';
   styleUrl: './header-user.css',
 })
 export class HeaderUser {
-  icons = {
-    search: faMagnifyingGlass,
-    bell: faBell,
-    bullHorn: faBullhorn,
-    question: faQuestion,
-  };
+  readonly icons = AppIcons;
 }

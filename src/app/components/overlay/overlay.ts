@@ -29,15 +29,15 @@ export class Overlay implements OnChanges {
   }
 
   toggleOpen(): void {
-    const newState: boolean = this._isOpen;
-    if (newState === true) {
-      this.closePanel();
-    } else {
-      this._isOpen = true;
-    }
+    this._isOpen = !this._isOpen;
   }
 
   public closePanel(): void {
+    // this.hidePanel();
+    this._isOpen = false;
+  }
+
+  private hidePanel() {
     const el = document.querySelector('.show-overlay');
     this.animatedClass = 'hide-overlay';
     el?.classList.add('hide-overlay');
@@ -48,7 +48,9 @@ export class Overlay implements OnChanges {
     }, 300);
   }
 
-  onPanelDetached(): void {}
+  onPanelDetached(): void {
+    console.log('detach');
+  }
 
   getClassFull(): string {
     return this.fullScreen ? 'top-full-screen' : '';

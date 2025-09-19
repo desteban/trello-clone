@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Overlay } from '../../overlay/overlay';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { AppIcons } from '@shared/AppIcons';
 
 @Component({
   selector: 'header-theme-menu',
@@ -10,7 +10,5 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './theme-menu.css',
 })
 export class ThemeMenu {
-  icons = {
-    chevronRight: faChevronRight,
-  };
+  readonly icons = AppIcons;
 }

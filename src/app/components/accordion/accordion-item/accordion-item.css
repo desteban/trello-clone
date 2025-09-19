@@ -1,0 +1,26 @@
+.accordion-trigger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  transition: background-colo 150ms ease-in;
+}
+
+.accordion-trigger:hover {
+  background-color: var(--color-gray-100);
+}
+
+.accordion-body {
+  /* padding: 5px 10px; */
+}
+
+.icon {
+  /* transition: transform .2s ease-in; */
+  display: block;
+}
+
+.icon.open {
+  transform: rotate(180deg);
+}

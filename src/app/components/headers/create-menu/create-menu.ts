@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Overlay } from '../../overlay/overlay';
 import { Button } from '../../button/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTableColumns, faSwatchbook } from '@fortawesome/free-solid-svg-icons';
+import { AppIcons } from '@shared/AppIcons';
 
 @Component({
   selector: 'navbar-create-menu',
@@ -11,8 +11,5 @@ import { faTableColumns, faSwatchbook } from '@fortawesome/free-solid-svg-icons'
   styleUrl: './create-menu.css',
 })
 export class CreateMenu {
-  icons = {
-    table: faTableColumns,
-    template: faSwatchbook,
-  };
+  readonly icons = AppIcons;
 }
