@@ -1,7 +1,14 @@
 <aside>
-  <nav>
+  <nav class="nav">
     <ul>
-      <li><a href="#">Tableros</a></li>
+      <li>
+        <a
+          routerLink="/boards"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Tableros</a
+        >
+      </li>
       <li><a href="#">Plantillas</a></li>
       <li><a href="#">Inicio</a></li>
     </ul>

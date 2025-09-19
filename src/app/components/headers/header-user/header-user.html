@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center">
       <div class="flex items-center">
         <a routerLink="/">
-          <picture class="block aspect-video h-8 lg:h-11">
+          <picture class="block aspect-square lg:aspect-video h-8 lg:h-11">
             <source media="(min-width: 1024px)" srcset="assets/trello/png/Trello_logo_light.png" />
             <img
               src="assets/trello/svg/Trello_icon.svg"
@@ -46,6 +46,22 @@
       </div>
 
       <div class="flex items-center">
+        <div class="hidden md:block">
+          <button>
+            <fa-icon [icon]="icons.bullHorn"></fa-icon>
+          </button>
+        </div>
+        <div class="hidden md:block">
+          <button>
+            <fa-icon [icon]="icons.bell"></fa-icon>
+          </button>
+        </div>
+        <div class="hidden md:block">
+          <button>
+            <fa-icon [icon]="icons.question"></fa-icon>
+          </button>
+        </div>
+
         <navbar-account-menu />
       </div>
     </div>

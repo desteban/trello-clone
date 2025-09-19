@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import './styles/colors.css';
+@import './styles/components.css';
 
 html {
   background-color: var(--background);
@@ -84,6 +85,7 @@ input:focus {
 button {
   padding: 5px 10px;
   border-radius: var(--rounded);
+  cursor: pointer;
 }
 
 .top-full-screen {

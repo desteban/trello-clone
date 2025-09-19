@@ -15,10 +15,10 @@
   cdkConnectedOverlay
   [cdkConnectedOverlayOrigin]="trigger"
   [cdkConnectedOverlayOpen]="currentOpen"
-  (detach)="(currentOpen)"
+  (detach)="onPanelDetached()"
   (overlayOutsideClick)="closePanel()"
-  cdkConnectedOverlay
-  [cdkConnectedOverlayPanelClass]="getClassFull()"
+  [cdkConnectedOverlayPanelClass]="animatedClass"
+  cdkConnectedOverlayBackdropClass="asdadadadasd"
 >
   <ng-content select="[panel]"></ng-content>
 </ng-template>

@@ -15,6 +15,8 @@ export class Overlay implements OnChanges {
   @Input() fullScreen: boolean = false;
   @Output() click = new EventEmitter<boolean>();
   private _isOpen: boolean = this.isOpen;
+  animatedClass: 'hide-overlay' | 'show-overlay' = 'show-overlay';
+  id: string = 'panel-' + Math.random();
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['isOpen']) {
@@ -27,13 +29,26 @@ export class Overlay implements OnChanges {
   }
 
   toggleOpen(): void {
-    this._isOpen = !this._isOpen;
+    const newState: boolean = this._isOpen;
+    if (newState === true) {
+      this.closePanel();
+    } else {
+      this._isOpen = true;
+    }
   }
 
   public closePanel(): void {
-    this._isOpen = false;
-    this.click.emit(this._isOpen);
+    const el = document.querySelector('.show-overlay');
+    this.animatedClass = 'hide-overlay';
+    el?.classList.add('hide-overlay');
+
+    setTimeout(() => {
+      el?.classList.remove('hide-overlay');
+      this._isOpen = false;
+    }, 300);
   }
+
+  onPanelDetached(): void {}
 
   getClassFull(): string {
     return this.fullScreen ? 'top-full-screen' : '';
