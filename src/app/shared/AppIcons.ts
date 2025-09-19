@@ -12,6 +12,8 @@ import {
   faChevronUp,
   faGear,
   faPlus,
+  faHome,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const AppIcons = {
@@ -30,4 +32,6 @@ export const AppIcons = {
 
   gear: faGear,
   plus: faPlus,
+  home: faHome,
+  star: faStar,
 };

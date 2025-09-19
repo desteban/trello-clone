@@ -6,15 +6,21 @@
           routerLink="/boards"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Tableros</a
         >
+          <fa-icon [icon]="icons.table"></fa-icon>
+          Tableros
+        </a>
       </li>
-      <li><a href="#">Plantillas</a></li>
-      <li><a href="#">Inicio</a></li>
+      <li>
+        <a href="#"><fa-icon [icon]="icons.template"></fa-icon> Plantillas</a>
+      </li>
+      <li>
+        <a href="#"><fa-icon [icon]="icons.home"></fa-icon> Inicio</a>
+      </li>
     </ul>
   </nav>
 
-  <section aria-describedby="espacios-trabajo">
+  <section class="work-space-section" aria-describedby="espacios-trabajo">
     <h2 id="espacios-trabajo" class="h6">Espacios de trabajo</h2>
 
     <div>

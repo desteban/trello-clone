@@ -1,0 +1,16 @@
+<article class="board shadow">
+  <a [title]="name" [routerLink]="['/board', slug]">
+    <picture class="image-container">
+      <img [src]="src" [alt]="altText" class="w-full h-full object-cover" loading="lazy" />
+      <div class="b"></div>
+      <button class="star">
+        <span class="sr-only">Marcar como favorito el tablero "{{ name }}"</span>
+        <fa-icon class="star-icon" [icon]="icons.star"></fa-icon>
+      </button>
+    </picture>
+
+    <div class="px-2 py-0.5">
+      <h3 class="title-board">{{ name }}</h3>
+    </div>
+  </a>
+</article>

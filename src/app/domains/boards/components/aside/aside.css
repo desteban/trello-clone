@@ -1,7 +1,11 @@
 aside {
   height: 100%;
-  width: 300px;
-  max-width: 300px;
+  width: 280px;
+  max-width: 280px;
+}
+
+.nav {
+  margin-bottom: 16px;
 }
 
 .nav li {
@@ -24,6 +28,11 @@ a.active {
   color: var(--color-blue-900);
 }
 
+.work-space-section {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-gray-300);
+}
+
 .work-space-list {
   font-size: 14px;
 }
@@ -36,7 +45,7 @@ a.active {
   display: block;
   transition: background-color 200ms ease-in;
   margin-top: 4px;
-  padding: 4px 6px 4px 2.5rem;
+  padding: 6px 8px 6px 2.5rem;
   border-radius: 6px;
   width: 100%;
   display: flex;
