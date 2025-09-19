@@ -1,31 +1,23 @@
-<div class="global-container">
-  <div>
-    <component-header-user />
-  </div>
+<shared-layouts-screen-layout>
+  <component-header-user header />
 
-  <div class="container-content">
-    <div class="container-aside hidden md:block">
-      <boards-components-aside />
-    </div>
+  <boards-components-aside aside />
 
-    <main>
-      <div class="content">
-        <h1>Tableros</h1>
-        <section aria-labelledby="your-workspace">
-          <h2 id="your-workspace">Tus espacios de trabajo</h2>
-          <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            @for (board of boards; track $index) {
-            <boards-item-board [board]="board"></boards-item-board>
-            }
+  <div main class="content">
+    <h1>Tableros</h1>
+    <section aria-labelledby="your-workspace">
+      <h2 id="your-workspace">Tus espacios de trabajo</h2>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        @for (board of boards; track $index) {
+        <boards-item-board [board]="board"></boards-item-board>
+        }
 
-            <div
-              class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
-            >
-              <span>Crear tablero nuevo</span>
-            </div>
-          </div>
-        </section>
+        <div
+          class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
+        >
+          <span>Crear tablero nuevo</span>
+        </div>
       </div>
-    </main>
+    </section>
   </div>
-</div>
+</shared-layouts-screen-layout>

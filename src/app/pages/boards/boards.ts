@@ -3,10 +3,11 @@ import { HeaderUser } from '@app/components/headers/header-user/header-user';
 import { Aside } from '@app/domains/boards/components/aside/aside';
 import { BoardItem, mockBoards } from '@app/models/BoardItem';
 import { ItemBoards } from "@domains/boards/item-boards/item-boards";
+import { ScreenLayout } from "@shared/layouts/screen-layout/screen-layout";
 
 @Component({
   selector: 'app-boards',
-  imports: [HeaderUser, Aside, ItemBoards],
+  imports: [HeaderUser, Aside, ItemBoards, ScreenLayout],
   templateUrl: './boards.html',
   styleUrl: './boards.css',
 })

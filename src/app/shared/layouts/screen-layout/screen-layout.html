@@ -1,0 +1,15 @@
+<div class="global-container">
+  <div>
+    <ng-content select="[header]"></ng-content>
+  </div>
+
+  <div class="global-container-content">
+    <div class="container-aside hidden md:block">
+      <ng-content select="[aside]"></ng-content>
+    </div>
+
+    <main class="main">
+      <ng-content select="[main]"></ng-content>
+    </main>
+  </div>
+</div>
