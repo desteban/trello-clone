@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'shared-layouts-screen-layout',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './screen-layout.html',
   styleUrl: './screen-layout.css',
 })
-export class ScreenLayout {}
+export class ScreenLayout {
+  @Input({ required: false }) showAside: boolean = false;
+}

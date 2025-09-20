@@ -1,0 +1,23 @@
+<div cdkDropListGroup class="list-container">
+  @for (list of boardList; track $index) {
+  <div class="list" cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event)">
+    <div class="title-list-container">
+      <h2 class="title-list">{{ list.title }}</h2>
+      <fa-icon [icon]="icons.dots"></fa-icon>
+    </div>
+
+    <ol class="tasks">
+      @for (task of list.cards; track $index) {
+      <li cdkDrag class="task">{{ task.title }}</li>
+      }
+    </ol>
+
+    <div class="footer-list">
+      <button class="hover:bg-neutral-200 rounded-lg w-full text-left">
+        <fa-icon [icon]="icons.plus"></fa-icon>
+        <span>Añade una tarjeta</span>
+      </button>
+    </div>
+  </div>
+  }
+</div>

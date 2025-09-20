@@ -4,9 +4,11 @@
   </div>
 
   <div class="global-container-content">
+    @if (showAside ) {
     <div class="container-aside hidden md:block">
       <ng-content select="[aside]"></ng-content>
     </div>
+    }
 
     <main class="main">
       <ng-content select="[main]"></ng-content>

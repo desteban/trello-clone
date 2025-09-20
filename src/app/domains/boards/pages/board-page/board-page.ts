@@ -3,13 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ScreenLayout } from '@shared/layouts/screen-layout/screen-layout';
 import { BoardHeader } from '@domains/boards/components/board-header/board-header';
 import { BoardService } from '@shared/services/Board/board-service';
-import { Board } from '@app/models/Board';
+import { Board, BoardList } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
-import { DragDropContainer } from "@components/DragAndDrop/drag-drop-container/drag-drop-container";
+import { Lists } from '@domains/boards/components/lists/lists';
 
 @Component({
   selector: 'app-board-page',
-  imports: [ScreenLayout, BoardHeader, DragDropContainer],
+  imports: [ScreenLayout, BoardHeader, Lists],
   templateUrl: './board-page.html',
   styleUrl: './board-page.css',
 })
@@ -32,6 +32,10 @@ export class BoardPage implements OnInit, OnDestroy {
 
   get nameBoard(): string {
     return this.board?.title ?? '';
+  }
+
+  get boardList(): BoardList[] {
+    return this.board?.lists ?? [];
   }
 
   private loadBoard(slug: string) {
