@@ -1,0 +1,13 @@
+.board-header {
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  background-color: #ffffff7d;
+  backdrop-filter: blur(6px);
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-board {
+  font-size: 1rem;
+  font-weight: 700;
+}

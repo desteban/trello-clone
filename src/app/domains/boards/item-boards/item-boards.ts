@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
-import { BoardItem } from '@app/models/BoardItem';
+import { BoardItem } from '@app/models/Board';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppIcons } from '@shared/AppIcons';
 
