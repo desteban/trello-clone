@@ -4,16 +4,19 @@ import { ScreenLayout } from '@shared/layouts/screen-layout/screen-layout';
 import { BoardHeader } from '@domains/boards/components/board-header/board-header';
 import { BoardService } from '@shared/services/Board/board-service';
 import { Board } from '@app/models/Board';
+import { Title } from '@angular/platform-browser';
+import { DragDropContainer } from "@components/DragAndDrop/drag-drop-container/drag-drop-container";
 
 @Component({
   selector: 'app-board-page',
-  imports: [ScreenLayout, BoardHeader],
+  imports: [ScreenLayout, BoardHeader, DragDropContainer],
   templateUrl: './board-page.html',
   styleUrl: './board-page.css',
 })
 export class BoardPage implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   private boardService: BoardService = inject(BoardService);
+  private titleService: Title = inject(Title);
   board: Board | null = null;
   slug: string | null = this.route.snapshot.paramMap.get('id');
   loading: boolean = false;
@@ -36,7 +39,8 @@ export class BoardPage implements OnInit, OnDestroy {
     this.boardService.getBoard(slug).subscribe({
       next: (board) => {
         this.board = board;
-        this.loadBackground(board.srcImg);
+        this.titleService.setTitle(`${board.title}`);
+        // this.loadBackground(board.srcImg);
       },
       complete: () => {
         this.loading = false;
@@ -44,6 +48,11 @@ export class BoardPage implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Mostrar o quitar la imagen del tablero
+   * @param {string} src url de la Imagen del tablero
+   * @returns
+   */
   private loadBackground(src: string | null) {
     const body = document.querySelector('body');
     if (!body) return;

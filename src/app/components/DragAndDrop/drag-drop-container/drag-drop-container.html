@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Lista de elementos pendientes</h2>
+  <components-drag-drop-list
+    [listData]="elementosPendientes"
+    (itemDropped)="onDrop($event)"
+    #pendingListRef
+  >
+  </components-drag-drop-list>
+
+  <h2>Lista de elementos completados</h2>
+  <components-drag-drop-list
+    [listData]="elementosCompletados"
+    (itemDropped)="onDrop($event)"
+    #completedListRef
+  >
+  </components-drag-drop-list>
+</div>
