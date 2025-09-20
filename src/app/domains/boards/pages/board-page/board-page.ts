@@ -44,7 +44,7 @@ export class BoardPage implements OnInit, OnDestroy {
       next: (board) => {
         this.board = board;
         this.titleService.setTitle(`${board.title}`);
-        // this.loadBackground(board.srcImg);
+        this.loadBackground(board.srcImg);
       },
       complete: () => {
         this.loading = false;
@@ -67,5 +67,9 @@ export class BoardPage implements OnInit, OnDestroy {
     }
 
     body.style = `background: url(${src}); background-repeat: no-repeat; background-size: cover;`;
+  }
+
+  addNewList(newList: BoardList): void {
+    this.board?.lists.push(newList);
   }
 }

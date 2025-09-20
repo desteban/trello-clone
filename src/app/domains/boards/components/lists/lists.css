@@ -1,6 +1,9 @@
 .list-container {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  padding-inline: 12px;
+  overflow: auto hidden;
 }
 
 .list-container>.list:not(:last-child) {
@@ -13,6 +16,8 @@
   padding: 8px 12px;
   background-color: #f1f2f4;
   font-size: 14px;
+  flex-shrink: 0;
+  max-width: 320px;
 }
 
 .title-list-container {

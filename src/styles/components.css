@@ -30,7 +30,6 @@ body {
 
 .main {
   flex-grow: 1;
-  padding-inline: 3rem;
   overflow: auto;
   height: 100%;
 }
@@ -95,4 +94,33 @@ body {
 .hide-overlay {
   -webkit-animation: fadeOut 0.3s ease-in forwards;
   animation: fadeOut 0.3s ease-in forwards;
+}
+
+
+/* Para toda la página */
+::-webkit-scrollbar {
+  width: 8px;
+  /* Ancho de la barra de desplazamiento vertical */
+}
+
+/* El fondo del scroll */
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  /* Fondo con un 20% de opacidad (más visible) */
+  border-radius: 10px;
+}
+
+/* El "pulgar" o la parte arrastrable del scroll */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.7);
+  /* Color gris con 70% de opacidad (más visible) */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Cuando pasas el mouse por encima */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(128, 128, 128, 0.9);
+  /* Casi opaco al pasar el mouse */
 }

@@ -2,4 +2,5 @@
 .content {
   max-width: 900px;
   margin: 12px auto;
+  padding-inline: 3rem;
 }

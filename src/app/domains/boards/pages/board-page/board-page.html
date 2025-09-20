@@ -1,7 +1,10 @@
 <shared-layouts-screen-layout>
   <board-components-board-header header [name]="nameBoard"></board-components-board-header>
 
-  <div main>
-    <boards-components-lists [boardList]="boardList"></boards-components-lists>
+  <div main class="pt-6 h-full">
+    <boards-components-lists
+      [boardList]="boardList"
+      (addList)="addNewList($event)"
+    ></boards-components-lists>
   </div>
 </shared-layouts-screen-layout>
