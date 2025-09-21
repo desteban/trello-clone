@@ -15,6 +15,7 @@ import {
   faHome,
   faStar,
   faListDots,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const AppIcons = {
@@ -37,4 +38,5 @@ export const AppIcons = {
   star: faStar,
 
   dots: faListDots,
+  x: faXmark,
 };

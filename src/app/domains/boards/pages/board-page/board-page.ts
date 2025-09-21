@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ScreenLayout } from '@shared/layouts/screen-layout/screen-layout';
 import { BoardHeader } from '@domains/boards/components/board-header/board-header';
@@ -6,10 +6,11 @@ import { BoardService } from '@shared/services/Board/board-service';
 import { Board, BoardList } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
 import { Lists } from '@domains/boards/components/lists/lists';
+import { ModalContainer } from '@components/Modal/modal-container/modal-container';
 
 @Component({
   selector: 'app-board-page',
-  imports: [ScreenLayout, BoardHeader, Lists],
+  imports: [ScreenLayout, BoardHeader, Lists, ModalContainer],
   templateUrl: './board-page.html',
   styleUrl: './board-page.css',
 })
@@ -20,6 +21,11 @@ export class BoardPage implements OnInit, OnDestroy {
   board: Board | null = null;
   slug: string | null = this.route.snapshot.paramMap.get('id');
   loading: boolean = false;
+  @ViewChild(ModalContainer) modal!: ModalContainer;
+
+  closeModal() {
+    this.modal.closeDialog();
+  }
 
   ngOnInit(): void {
     if (this.slug === null) return;

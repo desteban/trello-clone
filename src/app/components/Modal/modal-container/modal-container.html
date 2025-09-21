@@ -1,8 +1,11 @@
 <ng-template #template>
   <div class="modal" [ngClass]="className">
-    <button (click)="close()">close</button>
-    <h1>Favorite Animal</h1>
-    <div>My favorite animal is:</div>
+    <div>
+      <button (click)="closeDialog()">
+        <span class="sr-only">Cerrar ventana</span>
+        <fa-icon [icon]="icons.x"></fa-icon>
+      </button>
+    </div>
     <ng-content></ng-content>
   </div>
 </ng-template>

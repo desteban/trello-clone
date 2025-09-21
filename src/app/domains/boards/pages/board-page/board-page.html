@@ -2,6 +2,20 @@
   <board-components-board-header header [name]="nameBoard"></board-components-board-header>
 
   <div main class="pt-6 h-full">
+    <div>
+      <component-modal-container>
+        <div trigger class="p-2 bg-white">Open</div>
+
+        <div modal>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem asperiores ex
+            laboriosam qui laborum, consequuntur dolorum animi debitis, expedita suscipit rerum
+            perspiciatis ipsum voluptates, dignissimos tenetur sunt. Enim, dolorem veniam.
+          </p>
+          <button (click)="closeModal()">Salir</button>
+        </div>
+      </component-modal-container>
+    </div>
     <boards-components-lists
       [boardList]="boardList"
       (addList)="addNewList($event)"
