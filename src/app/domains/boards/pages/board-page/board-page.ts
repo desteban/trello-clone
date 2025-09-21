@@ -1,5 +1,5 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ScreenLayout } from '@shared/layouts/screen-layout/screen-layout';
 import { BoardHeader } from '@domains/boards/components/board-header/board-header';
 import { BoardService } from '@shared/services/Board/board-service';

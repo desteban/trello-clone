@@ -1,0 +1,9 @@
+.trigger {
+  padding: 0px;
+}
+
+.modal {
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+}

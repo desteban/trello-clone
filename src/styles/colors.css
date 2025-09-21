@@ -5,5 +5,14 @@
   --primary-foreground: #fff;
   --primary-hover: #458ff6;
 
-  --rounded: 4px
+  --rounded: 4px;
+
+}
+
+
+@theme {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-foreground-primary: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
 }

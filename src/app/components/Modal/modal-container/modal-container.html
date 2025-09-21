@@ -1,0 +1,12 @@
+<ng-template #template>
+  <div class="modal" [ngClass]="className">
+    <button (click)="close()">close</button>
+    <h1>Favorite Animal</h1>
+    <div>My favorite animal is:</div>
+    <ng-content></ng-content>
+  </div>
+</ng-template>
+
+<button class="trigger" (click)="openDialog()">
+  <ng-content select="[trigger]"></ng-content>
+</button>
