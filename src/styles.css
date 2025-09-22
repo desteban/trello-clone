@@ -58,7 +58,8 @@ input {
   border-color: var(--primary);
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline-color: var(--primary);
 }
 

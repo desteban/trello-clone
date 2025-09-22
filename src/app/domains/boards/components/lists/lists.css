@@ -53,6 +53,8 @@
   border-radius: var(--radius-lg);
   box-sizing: border-box;
   border: 2px solid #ffffff;
+  width: 100%;
+  text-align: left;
 }
 
 .tasks .task:hover {

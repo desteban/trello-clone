@@ -16,6 +16,10 @@ import {
   faStar,
   faListDots,
   faXmark,
+  faQuoteLeft,
+  faQuoteRight,
+  faComments,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const AppIcons = {
@@ -39,4 +43,10 @@ export const AppIcons = {
 
   dots: faListDots,
   x: faXmark,
+
+  quoteLeft: faQuoteLeft,
+  quoteRight: faQuoteRight,
+
+  comments: faComments,
+  send: faPaperPlane,
 };

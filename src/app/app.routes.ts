@@ -12,6 +12,7 @@ export const routes: Routes = [
   {
     path: 'login',
     component: Login,
+    title: 'Ingresar | TrelloClone',
   },
   {
     path: 'boards',

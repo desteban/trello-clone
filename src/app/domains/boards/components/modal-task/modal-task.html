@@ -1,0 +1,54 @@
+<component-modal-container [open]="isOpen" (closed)="closedModal()">
+  <div class="modal-container">
+    <div class="content shadow-lg">
+      <form (submit)="submitForm($event)" [formGroup]="form" class="">
+        <div>
+          <component-input-field
+            id="title"
+            label="Titulo de la tarea"
+            placeholder="Titulo de la tarea"
+            formControlName="title"
+            [required]="true"
+            class="!border-neutral-300"
+          />
+        </div>
+
+        <div class="mt-12">
+          <component-text-area
+            id="description"
+            placeholder="Descripción de la tarea"
+            label="Descripción de la tarea"
+            formControlName="description"
+            class="!border-neutral-300"
+          >
+            <div icon-left>
+              <fa-icon [icon]="icons.quoteLeft"></fa-icon>
+            </div>
+          </component-text-area>
+        </div>
+      </form>
+    </div>
+
+    <div class="aside">
+      <div class="text-neutral-800 flex mb-3.5 items-center gap-3">
+        <fa-icon [icon]="icons.comments"></fa-icon>
+        <h3 class="h6 text-neutral-800">Comentario y Actividad</h3>
+      </div>
+
+      <div>
+        <form class="flex items-center gap-2">
+          <component-input-field
+            id="comment"
+            placeholder="Escribe un comentario..."
+            class="!border-0 bg-background shadow w-full"
+            autoComplete="off"
+          />
+          <component-button>
+            <span class="sr-only">Enviar comentario</span>
+            <fa-icon [icon]="icons.send"></fa-icon>
+          </component-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</component-modal-container>

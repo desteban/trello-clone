@@ -23,8 +23,9 @@ body {
 .container-aside {
   flex-grow: 1;
   padding-top: 2rem;
-  padding-left: 3rem;
+  padding-left: 1rem;
   padding-bottom: 3rem;
+  max-width: 320px;
 }
 
 

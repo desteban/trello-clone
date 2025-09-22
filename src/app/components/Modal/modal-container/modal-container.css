@@ -5,5 +5,9 @@
 .modal {
   background-color: var(--color-background);
   border-radius: var(--radius-lg);
-  padding: 10px;
+  margin-inline: 16px;
+  max-height: calc(100dvh - 200px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }

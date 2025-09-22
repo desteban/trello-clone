@@ -1,0 +1,23 @@
+.modal-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  overflow: hidden;
+  border-top: 1px solid var(--color-neutral-700);
+}
+
+.modal-container>* {
+  overflow: auto;
+  padding: 16px;
+}
+
+.content {
+  flex: 1 1 auto;
+  border-right: 1px solid var(--color-neutral-400);
+}
+
+.aside {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-neutral-100);
+}

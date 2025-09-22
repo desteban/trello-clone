@@ -8,7 +8,20 @@
 
     <ol class="tasks">
       @for (task of list.cards; track $index) {
-      <li cdkDrag class="task">{{ task.title }}</li>
+      <li cdkDrag class="">
+        <!-- <component-modal-container>
+          <div trigger>{{ task.title }}</div>
+
+          <div modal>
+            <h2>{{ task.title }}</h2>
+
+            <p>{{ task.description }}</p>
+          </div>
+        </component-modal-container> -->
+        <button (click)="onClicTask(task)" class="task">
+          {{ task.title }}
+        </button>
+      </li>
       }
     </ol>
 

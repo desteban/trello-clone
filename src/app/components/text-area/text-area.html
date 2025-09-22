@@ -1,17 +1,19 @@
 <label>
-  <span [class.required]="required">
+  <span class="label-content" [class.required]="required">
+    <ng-content select="[icon-left]"></ng-content>
     {{ label }}
+    <ng-content select="[icon-right]"></ng-content>
   </span>
 
   @if(helpText){
   <span [id]="id + '-help'" class="help-text">{{ helpText }}</span>
   }
+
   <!--  -->
-  <input
+  <textarea
     [id]="id"
     [name]="name || id"
     [placeholder]="placeholder"
-    [type]="type"
     [value]="currentValue"
     (input)="handleInput($event)"
     [disabled]="isDisabled"
@@ -22,7 +24,7 @@
     [attr.aria-required]="required"
     [attr.aria-errormessage]="id + '-error'"
     [ngClass]="class"
-  />
+  ></textarea>
 </label>
 @if ( error ) {
 <span [id]="id + '-error'" class="text-red-400 block">{{ error }}</span>

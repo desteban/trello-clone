@@ -3,14 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 import { ScreenLayout } from '@shared/layouts/screen-layout/screen-layout';
 import { BoardHeader } from '@domains/boards/components/board-header/board-header';
 import { BoardService } from '@shared/services/Board/board-service';
-import { Board, BoardList } from '@app/models/Board';
+import { Board, BoardList, CardBoard } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
 import { Lists } from '@domains/boards/components/lists/lists';
-import { ModalContainer } from '@components/Modal/modal-container/modal-container';
+import { ModalTask } from "@domains/boards/components/modal-task/modal-task";
 
 @Component({
   selector: 'app-board-page',
-  imports: [ScreenLayout, BoardHeader, Lists, ModalContainer],
+  imports: [ScreenLayout, BoardHeader, Lists, ModalTask],
   templateUrl: './board-page.html',
   styleUrl: './board-page.css',
 })
@@ -21,10 +21,10 @@ export class BoardPage implements OnInit, OnDestroy {
   board: Board | null = null;
   slug: string | null = this.route.snapshot.paramMap.get('id');
   loading: boolean = false;
-  @ViewChild(ModalContainer) modal!: ModalContainer;
+  selectTask: CardBoard | null = null;
 
-  closeModal() {
-    this.modal.closeDialog();
+  showTask(task: CardBoard) {
+    this.selectTask = task;
   }
 
   ngOnInit(): void {

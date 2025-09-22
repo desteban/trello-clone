@@ -7,7 +7,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BoardList } from '@app/models/Board';
+import { BoardList, CardBoard } from '@app/models/Board';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppIcons } from '@shared/AppIcons';
 
@@ -20,7 +20,12 @@ import { AppIcons } from '@shared/AppIcons';
 export class Lists {
   @Input({ required: true }) boardList!: BoardList[];
   @Output() addList = new EventEmitter<BoardList>();
+  @Output() selectedTask = new EventEmitter<CardBoard>();
   readonly icons = AppIcons;
+
+  onClicTask(task: CardBoard) {
+    this.selectedTask.emit(task);
+  }
 
   drop(event: CdkDragDrop<any>) {
     if (event.previousContainer === event.container) {

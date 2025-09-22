@@ -1,39 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
-import {
-  FormsModule,
-  ReactiveFormsModule,
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
-} from '@angular/forms';
-
-export enum InputFieldVariants {
-  'text' = 'text',
-  'password' = 'password',
-  'email' = 'email',
-  'number' = 'number',
-  'phone' = 'phone',
-}
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'component-input-field',
+  selector: 'component-text-area',
   imports: [FormsModule, ReactiveFormsModule, CommonModule],
-  templateUrl: './input-field.html',
-  styleUrl: './input-field.css',
+  templateUrl: './text-area.html',
+  styleUrl: './text-area.css',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => InputField),
+      useExisting: forwardRef(() => TextArea),
       multi: true,
     },
   ],
 })
-export class InputField implements ControlValueAccessor {
+export class TextArea {
   @Input({ required: true }) id!: string;
   @Input({ required: false }) name: string | undefined = undefined;
   @Input({ required: true }) placeholder!: string;
   @Input({ required: false }) label: string = '';
-  @Input({ required: false }) type: InputFieldVariants = InputFieldVariants.text;
   @Input({ required: false }) error: string | undefined | null = undefined;
   @Input({ required: false }) required: boolean = false;
   @Input({ required: false }) helpText: string | undefined = undefined;

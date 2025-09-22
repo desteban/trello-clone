@@ -4,20 +4,21 @@
   <boards-components-aside aside />
 
   <div main class="content">
-    <h1>Tableros</h1>
-    <section aria-labelledby="your-workspace">
-      <h2 id="your-workspace">Tus espacios de trabajo</h2>
-      <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-        @for (board of boards; track $index) {
-        <boards-item-board [board]="board"></boards-item-board>
-        }
-
-        <div
-          class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
-        >
-          <span>Crear tablero nuevo</span>
+    <div class="max-w-4xl mx-auto h-full">
+      <h1>Tableros</h1>
+      <section aria-labelledby="your-workspace">
+        <h2 id="your-workspace">Tus espacios de trabajo</h2>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+          @for (board of boards; track $index) {
+          <boards-item-board [board]="board"></boards-item-board>
+          }
+          <div
+            class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
+          >
+            <span>Crear tablero nuevo</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </shared-layouts-screen-layout>
