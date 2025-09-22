@@ -1,0 +1,17 @@
+.scroll-comments {
+  flex: 1;
+  min-height: 300px;
+  height: 100%;
+  font-size: 14px;
+}
+
+
+.author {
+  font-weight: 700;
+}
+
+.date-comment {
+  font-size: .85em;
+  text-decoration: underline;
+  color: var(--color-blue-600);
+}

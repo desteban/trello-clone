@@ -16,17 +16,27 @@ import {
   ReactiveFormsModule,
   FormGroup,
 } from '@angular/forms';
-import { CardBoard } from '@app/models/Board';
+import { CardBoard, Comment } from '@app/models/Board';
 import { ModalContainer } from '@components/Modal/modal-container/modal-container';
 import { InputField } from '@components/input-field/input-field';
 import { TextArea } from '@components/text-area/text-area';
 import { AppIcons } from '@shared/AppIcons';
-import { FaIconComponent } from "@fortawesome/angular-fontawesome";
-import { Button } from "@components/button/button";
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { Button } from '@components/button/button';
+import { CommentsModal } from '../comments-modal/comments-modal';
 
 @Component({
   selector: 'boards-components-modal-task',
-  imports: [ModalContainer, InputField, FormsModule, ReactiveFormsModule, TextArea, FaIconComponent, Button],
+  imports: [
+    ModalContainer,
+    InputField,
+    FormsModule,
+    ReactiveFormsModule,
+    TextArea,
+    FaIconComponent,
+    Button,
+    CommentsModal,
+  ],
   templateUrl: './modal-task.html',
   styleUrl: './modal-task.css',
 })
@@ -36,7 +46,9 @@ export class ModalTask implements OnChanges {
   private fb: FormBuilder = inject(FormBuilder);
   isOpen: boolean = false;
   form: FormGroup = this.dataForm;
-  readonly icons = AppIcons
+  readonly icons = AppIcons;
+
+  items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
 
   ngOnChanges(changes: SimpleChanges): void {
     const taskChanges: SimpleChange = changes['selectedTask'];
@@ -59,6 +71,11 @@ export class ModalTask implements OnChanges {
 
   closedModal() {
     this.isOpen = false;
+    this.taskClosed.emit(this.form.value);
+  }
+
+  get comments(): Comment[] {
+    return this.selectedTask?.comments ?? [];
   }
 
   submitForm(event: Event) {

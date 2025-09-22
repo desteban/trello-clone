@@ -1,0 +1,12 @@
+<cdk-virtual-scroll-viewport appendOnly itemSize="10" class="scroll-comments">
+  <div *cdkVirtualFor="let comment of comments" class="flex gap-2 px-2 mb-4">
+    <img [src]="comment.user.avatar" alt="C" class="rounded-full size-11 mb-4" />
+
+    <div>
+      <span class="author">{{ comment.user.name }}:</span> {{ comment.message }}
+      <div class="date-comment">
+        <time [dateTime]="getDate(comment.timestamp)">{{ getDate(comment.timestamp) }}</time>
+      </div>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

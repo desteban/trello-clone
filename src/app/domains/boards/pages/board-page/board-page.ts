@@ -6,7 +6,7 @@ import { BoardService } from '@shared/services/Board/board-service';
 import { Board, BoardList, CardBoard } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
 import { Lists } from '@domains/boards/components/lists/lists';
-import { ModalTask } from "@domains/boards/components/modal-task/modal-task";
+import { ModalTask } from '@domains/boards/components/modal-task/modal-task';
 
 @Component({
   selector: 'app-board-page',
@@ -25,6 +25,10 @@ export class BoardPage implements OnInit, OnDestroy {
 
   showTask(task: CardBoard) {
     this.selectTask = task;
+  }
+
+  closeTask(task: CardBoard) {
+    this.selectTask = null;
   }
 
   ngOnInit(): void {

@@ -7,7 +7,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { BoardList, CardBoard } from '@app/models/Board';
+import { BoardList, CardBoard, DefaultBoardList } from '@app/models/Board';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppIcons } from '@shared/AppIcons';
 
@@ -41,7 +41,7 @@ export class Lists {
   }
 
   addNewList() {
-    const newList: BoardList = { title: 'Nueva lista', cards: [] };
+    const newList: BoardList = DefaultBoardList;
     this.addList.emit(newList);
   }
 }

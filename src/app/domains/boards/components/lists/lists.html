@@ -1,6 +1,11 @@
 <div cdkDropListGroup class="list-container">
   @for (list of boardList; track $index) {
-  <div class="list" cdkDropList [cdkDropListData]="list.cards" (cdkDropListDropped)="drop($event)">
+  <div
+    class="list shadow-xl"
+    cdkDropList
+    [cdkDropListData]="list.cards"
+    (cdkDropListDropped)="drop($event)"
+  >
     <div class="title-list-container">
       <h2 class="title-list">{{ list.title }}</h2>
       <fa-icon [icon]="icons.dots"></fa-icon>
@@ -8,16 +13,7 @@
 
     <ol class="tasks">
       @for (task of list.cards; track $index) {
-      <li cdkDrag class="">
-        <!-- <component-modal-container>
-          <div trigger>{{ task.title }}</div>
-
-          <div modal>
-            <h2>{{ task.title }}</h2>
-
-            <p>{{ task.description }}</p>
-          </div>
-        </component-modal-container> -->
+      <li cdkDrag class="shadow">
         <button (click)="onClicTask(task)" class="task">
           {{ task.title }}
         </button>

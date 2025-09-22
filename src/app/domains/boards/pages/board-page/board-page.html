@@ -9,4 +9,4 @@
     ></boards-components-lists>
   </div>
 </shared-layouts-screen-layout>
-<boards-components-modal-task [selectedTask]="selectTask" />
+<boards-components-modal-task [selectedTask]="selectTask" (taskClosed)="closeTask($event)" />
