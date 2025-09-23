@@ -1,3 +1,4 @@
+import { Comment } from './Comment';
 import { mockUsers, User } from './User';
 
 export interface Board {
@@ -19,12 +20,6 @@ export const DefaultBoardList: BoardList = {
   title: '',
   cards: [],
 };
-
-export interface Comment {
-  user: User;
-  message: string;
-  timestamp: string;
-}
 
 export interface CardBoard {
   id: string;

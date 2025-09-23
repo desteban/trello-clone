@@ -15,12 +15,14 @@ export class LocalStorage {
 
   public findOrCreate(key: string, data: any): any {
     const localStorageData = this.getKey(key);
+
     if (localStorageData === null) {
       const saveData: string = JSON.stringify(data);
       this.setItem(key, saveData);
+      return data;
     }
 
-    return data;
+    return localStorageData;
   }
 
   private getKey(key: string): any {

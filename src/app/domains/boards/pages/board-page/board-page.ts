@@ -5,8 +5,9 @@ import { BoardHeader } from '@domains/boards/components/board-header/board-heade
 import { BoardService } from '@shared/services/Board/board-service';
 import { Board, BoardList, CardBoard } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
-import { Lists } from '@domains/boards/components/lists/lists';
-import { ModalTask } from '@domains/boards/components/modal-task/modal-task';
+import { Lists, selectedTask } from '@domains/boards/components/lists/lists';
+import { AddCommentProps, ModalTask } from '@domains/boards/components/modal-task/modal-task';
+import { Comment, CreateCommentDTO } from '@app/models/Comment';
 
 @Component({
   selector: 'app-board-page',
@@ -21,9 +22,9 @@ export class BoardPage implements OnInit, OnDestroy {
   board: Board | null = null;
   slug: string | null = this.route.snapshot.paramMap.get('id');
   loading: boolean = false;
-  selectTask: CardBoard | null = null;
+  selectTask: selectedTask | null = null;
 
-  showTask(task: CardBoard) {
+  showTask(task: selectedTask) {
     this.selectTask = task;
   }
 
@@ -81,5 +82,16 @@ export class BoardPage implements OnInit, OnDestroy {
 
   addNewList(newList: BoardList): void {
     this.board?.lists.push(newList);
+  }
+
+  addComment(comment: AddCommentProps) {
+    const dto: CreateCommentDTO = {
+      comment: comment.comment,
+      taskId: comment.taskId,
+      idList: this.selectTask?.index.toString() ?? '',
+      boardSlug: this.board?.slug ?? '',
+    };
+
+    this.boardService.newComment(dto);
   }
 }

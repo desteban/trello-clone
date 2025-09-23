@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Comment } from '@app/models/Board';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { Comment } from '@app/models/Comment';
 
 @Component({
   selector: 'boards-component-comments-modal',

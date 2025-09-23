@@ -14,7 +14,7 @@
     <ol class="tasks">
       @for (task of list.cards; track $index) {
       <li cdkDrag class="shadow">
-        <button (click)="onClicTask(task)" class="task">
+        <button (click)="onClicTask(task, list.id)" class="task">
           {{ task.title }}
         </button>
       </li>

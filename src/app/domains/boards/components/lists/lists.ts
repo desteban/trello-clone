@@ -11,6 +11,11 @@ import { BoardList, CardBoard, DefaultBoardList } from '@app/models/Board';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppIcons } from '@shared/AppIcons';
 
+export interface selectedTask {
+  task: CardBoard;
+  index: string;
+}
+
 @Component({
   selector: 'boards-components-lists',
   imports: [CdkDropListGroup, CdkDropList, CdkDrag, FontAwesomeModule],
@@ -20,11 +25,11 @@ import { AppIcons } from '@shared/AppIcons';
 export class Lists {
   @Input({ required: true }) boardList!: BoardList[];
   @Output() addList = new EventEmitter<BoardList>();
-  @Output() selectedTask = new EventEmitter<CardBoard>();
+  @Output() selectedTask = new EventEmitter<selectedTask>();
   readonly icons = AppIcons;
 
-  onClicTask(task: CardBoard) {
-    this.selectedTask.emit(task);
+  onClicTask(task: CardBoard, index: string) {
+    this.selectedTask.emit({ task, index });
   }
 
   drop(event: CdkDragDrop<any>) {
