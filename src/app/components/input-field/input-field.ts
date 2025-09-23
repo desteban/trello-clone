@@ -1,5 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, forwardRef, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChange,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import {
   FormsModule,
   ReactiveFormsModule,
@@ -28,7 +40,8 @@ export enum InputFieldVariants {
     },
   ],
 })
-export class InputField implements ControlValueAccessor {
+export class InputField implements ControlValueAccessor, OnChanges {
+  @Input() focus: boolean = false;
   @Input({ required: true }) id!: string;
   @Input({ required: false }) name: string | undefined = undefined;
   @Input({ required: true }) placeholder!: string;
@@ -40,10 +53,26 @@ export class InputField implements ControlValueAccessor {
   @Input({ required: false }) autoComplete: string | null | undefined = undefined;
   @Input({ required: false }) class: string | undefined | null = undefined;
 
+  @Output() blur = new EventEmitter();
+
   private _currentValue: string = '';
   private _disabled: boolean = false;
   private onChange = (value: any): void => {};
   private onTouched = (value: any): void => {};
+  @ViewChild('input') inputElement!: ElementRef;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const change: SimpleChange = changes['focus'];
+    if (!change) return;
+
+    const { currentValue } = change;
+    if (currentValue === true) {
+      const el = document.querySelector(`input#${this.id}`) as HTMLInputElement;
+      el.focus();
+
+      this.inputElement?.nativeElement.focus();
+    }
+  }
 
   writeValue(obj: any): void {
     this._currentValue = obj || '';

@@ -1,0 +1,23 @@
+<h2 class="container-title-list">
+  <button [id]="buttonId" (click)="clickButton()" [class.hidden]="showInput">{{ title }}</button>
+
+  <form
+    (submit)="submit($event)"
+    [formGroup]="formTitle"
+    [id]="containerId"
+    class="hidden"
+    [class.showInput]="showInput"
+  >
+    <div>
+      <component-input-field
+        [id]="id"
+        [placeholder]="title ?? ''"
+        autoComplete="off"
+        formControlName="title"
+        [error]="MatchError('title')"
+        [focus]="showInput"
+        (blur)="blurInput()"
+      />
+    </div>
+  </form>
+</h2>

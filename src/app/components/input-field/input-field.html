@@ -22,6 +22,7 @@
     [attr.aria-required]="required"
     [attr.aria-errormessage]="id + '-error'"
     [ngClass]="class"
+    (blur)="blur.emit()"
   />
 </label>
 @if ( error ) {
