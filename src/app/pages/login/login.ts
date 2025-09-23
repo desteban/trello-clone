@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { Button } from '../../components/button/button';
 import { InputField, InputFieldVariants } from '../../components/input-field/input-field';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@shared/services/Auth/auth-service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,9 @@ import { Router } from '@angular/router';
 })
 export class Login {
   private router: Router = inject(Router);
+  private authService: AuthService = inject(AuthService);
   private fb: FormBuilder = inject(FormBuilder);
-  loginForm = this.fb.group({
+  loginForm: FormGroup = this.fb.group({
     username: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
@@ -45,6 +47,13 @@ export class Login {
       return;
     }
 
-    this.router.navigate(['boards']);
+    const data = this.loginForm.value;
+    this.authService.login(data).subscribe({
+      next: (tokens) => {
+        console.log('tokens', tokens);
+
+        this.router.navigate(['boards']);
+      },
+    });
   }
 }

@@ -139,7 +139,7 @@ export const defaultBoards: Board[] = [
     title: 'Marketing de contenidos',
     slug: 'marketing-de-contenidos',
     srcImg: 'https://picsum.photos/400/250?random=2',
-    team: [mockUsers[2], mockUsers[3]],
+    team: [mockUsers[2], mockUsers[3], mockUsers[0]],
     lists: [
       {
         id: 'list-4',
@@ -199,7 +199,7 @@ export const defaultBoards: Board[] = [
     title: 'Diseño de UI/UX',
     slug: 'duseno-ui-ux',
     srcImg: 'https://picsum.photos/400/250?random=3',
-    team: [mockUsers[4]],
+    team: [mockUsers[4], mockUsers[0]],
     lists: [
       {
         id: 'list-7',
@@ -278,7 +278,7 @@ export const defaultBoards: Board[] = [
     title: 'Gestión de proyectos',
     slug: 'gestion-de-proyectos',
     srcImg: 'https://picsum.photos/400/250?random=5',
-    team: [mockUsers[1], mockUsers[3], mockUsers[4]],
+    team: [mockUsers[1], mockUsers[3], mockUsers[4], mockUsers[0]],
     lists: [
       {
         id: 'list-12',

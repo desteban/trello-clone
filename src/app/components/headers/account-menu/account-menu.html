@@ -2,11 +2,7 @@
   <div trigger>
     <button>
       <span class="sr-only">Open user menu</span>
-      <img
-        class="w-8 h-8 rounded-full"
-        src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-        alt="user photo"
-      />
+      <img class="w-8 h-8 rounded-full" [src]="user?.avatar" alt="user photo" />
     </button>
   </div>
 
@@ -14,14 +10,10 @@
     <div class="space-horizontal">
       <h2 class="title-section">CUENTA</h2>
       <div class="flex space-x-2 items-center">
-        <img
-          class="size-14 rounded-full"
-          src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
-          alt="user photo"
-        />
+        <img class="size-14 rounded-full" [src]="user?.avatar" alt="user photo" />
         <div>
-          <p>Nombre Usuario</p>
-          <p class="text-gray-600">mail@mail.com</p>
+          <p>{{ user?.name }}</p>
+          <p class="text-gray-600">{{ user?.email }}</p>
         </div>
       </div>
     </div>
@@ -62,7 +54,7 @@
     <div class="section">
       <ul>
         <li>
-          <button>Cerras sesión</button>
+          <button (click)="logout()">Cerras sesión</button>
         </li>
       </ul>
     </div>

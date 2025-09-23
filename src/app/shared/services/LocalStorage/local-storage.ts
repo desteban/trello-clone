@@ -56,4 +56,13 @@ export class LocalStorage {
       return false;
     }
   }
+
+  public delete(key: string): boolean {
+    try {
+      localStorage.removeItem(key);
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
 }
