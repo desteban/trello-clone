@@ -1,0 +1,34 @@
+<div class="footer-list">
+  <button
+    class="hover:bg-neutral-200 rounded-lg w-full text-left"
+    [class.hidden]="showForm"
+    (click)="clickButton()"
+  >
+    <fa-icon [icon]="icons.plus"></fa-icon>
+    <span>Añade una tarjeta</span>
+  </button>
+
+  <form
+    (submit)="submit($event)"
+    [formGroup]="formAddTask"
+    class="hidden"
+    [class.showForm]="showForm"
+  >
+    <div>
+      <component-input-field
+        [id]="buttonId"
+        placeholder="Nueva tarjeta"
+        formControlName="title"
+        [focus]="showForm"
+      />
+    </div>
+    <div class="flex justify-between mt-2.5">
+      <component-button [type]="'submit'"> Añadir tarjeta </component-button>
+
+      <button (click)="clean()">
+        <span class="sr-only">No añadir tarjeta</span>
+        <fa-icon [icon]="icons.x"></fa-icon>
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   Validators,
@@ -7,8 +7,9 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { InputField } from '@components/input-field/input-field';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-interface ChangeTitleProps {
+export interface ChangeTitleProps {
   title: string;
 }
 
@@ -16,19 +17,30 @@ type ErrorMessageFn = (control: AbstractControl) => string;
 
 @Component({
   selector: 'boards-title-list',
-  imports: [FormsModule, ReactiveFormsModule, InputField],
+  imports: [FormsModule, ReactiveFormsModule, InputField, FontAwesomeModule],
   templateUrl: './title-list.html',
   styleUrl: './title-list.css',
 })
-export class TitleList {
+export class TitleList implements OnInit {
+  @Input({ required: false }) leftIcon: any = undefined;
+  @Input({ required: false }) rightIcon: any = undefined;
   @Input({ required: true }) id!: string;
-  @Input({ required: false }) title: string | undefined = undefined;
+  @Input({ required: false }) title: string = '';
+  @Input({ required: false }) initialValue: string = '';
   @Output() changeTitle: EventEmitter<ChangeTitleProps> = new EventEmitter<ChangeTitleProps>();
   private fb: FormBuilder = inject(FormBuilder);
-  formTitle = this.fb.nonNullable.group({
-    title: [this.title ?? '', [Validators.required, Validators.minLength(1)]],
-  });
+  formTitle = this.FormSchema;
   showInput: boolean = false;
+
+  ngOnInit(): void {
+    this.formTitle = this.FormSchema;
+  }
+
+  private get FormSchema() {
+    return this.fb.nonNullable.group({
+      title: [this.initialValue, [Validators.required, Validators.minLength(1)]],
+    });
+  }
 
   get containerId(): string {
     return `container-${this.id}`;
@@ -58,6 +70,7 @@ export class TitleList {
     const { title } = this.formTitle.getRawValue();
     const data: ChangeTitleProps = { title };
     this.changeTitle.emit(data);
+    this.blurInput();
   }
 
   MatchError(controlName: string): string | null {

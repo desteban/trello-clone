@@ -1,8 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { Board, BoardItem, defaultBoards, mockBoards } from '@app/models/Board';
+import { Board, BoardItem, BoardList, defaultBoards, mockBoards } from '@app/models/Board';
 import { Observable, of, throwError } from 'rxjs';
 import { LocalStorage } from '../LocalStorage/local-storage';
 import { CreateCommentDTO } from '@app/models/Comment';
+import { newTaskDTO } from '@domains/boards/components/lists/lists';
 
 @Injectable({
   providedIn: 'root',
@@ -80,4 +81,50 @@ export class BoardService {
   }
 
   public updateBoard() {}
+
+  public newList(list: BoardList, boardSlug: string): Observable<Board> {
+    const newBoards = this.boards.map((board) => {
+      if (board.slug !== boardSlug) return board;
+
+      const newBoard = { ...board };
+      newBoard.lists.push(list);
+      return newBoard;
+    });
+
+    const board = newBoards.find((board) => board.slug === boardSlug);
+    const update: boolean = this.lsService.setItem(this.boardsKey, newBoards);
+    if (!update || !board) {
+      return throwError(() => new Error('No se pudo actualizar'));
+    }
+
+    this.boards = newBoards;
+    return of(board);
+  }
+
+  public newTask(taskDTO: newTaskDTO) {
+    const newBoards = this.boards.map((board) => {
+      if (board.slug !== taskDTO.boardSlug) return board;
+
+      const newBoard = { ...board };
+      const newLists = board.lists.map((list) => {
+        if (list.id !== taskDTO.listId) return list;
+
+        const newList = { ...list };
+        newList.cards.push(taskDTO.task);
+        return newList;
+      });
+
+      newBoard.lists = newLists;
+      return newBoard;
+    });
+
+    const update: boolean = this.lsService.setItem(this.boardsKey, newBoards);
+    const board = newBoards.find((board) => board.slug === taskDTO.boardSlug);
+    if (!update || !board) {
+      return throwError(() => new Error('No pudimos actualizar el tablero'));
+    }
+
+    this.boards = newBoards;
+    return of(board);
+  }
 }

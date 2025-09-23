@@ -1,13 +1,16 @@
 <div cdkDropListGroup class="list-container">
   @for (list of boardList; track $index) {
-  <div
+  <section
     class="list shadow-xl"
     cdkDropList
     [cdkDropListData]="list.cards"
     (cdkDropListDropped)="drop($event)"
+    [attr.aria-labelledby]="list.id"
   >
     <div class="title-list-container">
-      <h2 class="title-list">{{ list.title }}</h2>
+      <div class="flex-1">
+        <boards-title-list [id]="list.id" [title]="list.title" [initialValue]="list.title" />
+      </div>
       <fa-icon [icon]="icons.dots"></fa-icon>
     </div>
 
@@ -21,15 +24,15 @@
       }
     </ol>
 
-    <div class="footer-list">
-      <button class="hover:bg-neutral-200 rounded-lg w-full text-left">
-        <fa-icon [icon]="icons.plus"></fa-icon>
-        <span>Añade una tarjeta</span>
-      </button>
-    </div>
-  </div>
+    <board-add-task-button [listId]="list.id" (addTask)="newTask($event, list.id)" />
+  </section>
   }
-  <div class="list">
-    <boards-title-list id="new" title="Añade otra lista" />
+  <div class="list w-52">
+    <boards-title-list
+      id="new"
+      title="Añade otra lista"
+      [leftIcon]="icons.plus"
+      (changeTitle)="newList($event)"
+    />
   </div>
 </div>

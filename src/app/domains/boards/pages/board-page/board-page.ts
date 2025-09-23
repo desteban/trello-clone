@@ -5,7 +5,12 @@ import { BoardHeader } from '@domains/boards/components/board-header/board-heade
 import { BoardService } from '@shared/services/Board/board-service';
 import { Board, BoardList, CardBoard } from '@app/models/Board';
 import { Title } from '@angular/platform-browser';
-import { Lists, selectedTask } from '@domains/boards/components/lists/lists';
+import {
+  Lists,
+  newTaskDTO,
+  NewTaskWithList,
+  selectedTask,
+} from '@domains/boards/components/lists/lists';
 import { AddCommentProps, ModalTask } from '@domains/boards/components/modal-task/modal-task';
 import { Comment, CreateCommentDTO } from '@app/models/Comment';
 
@@ -81,7 +86,18 @@ export class BoardPage implements OnInit, OnDestroy {
   }
 
   addNewList(newList: BoardList): void {
-    this.board?.lists.push(newList);
+    if (!this.board) {
+      return;
+    }
+
+    this.boardService.newList(newList, this.board?.slug).subscribe({
+      next: (board) => {
+        this.board = board;
+      },
+      error: (err) => {
+        alert('No pudimos agregar la nueva lista');
+      },
+    });
   }
 
   addComment(comment: AddCommentProps) {
@@ -93,5 +109,21 @@ export class BoardPage implements OnInit, OnDestroy {
     };
 
     this.boardService.newComment(dto);
+  }
+
+  addTask(data: NewTaskWithList) {
+    if (!this.board) {
+      return;
+    }
+
+    const dto: newTaskDTO = { ...data, boardSlug: this.board.slug };
+    this.boardService.newTask(dto).subscribe({
+      next: (board) => {
+        this.board = board;
+      },
+      error: () => {
+        alert('No pudimos actualizar el tablero');
+      },
+    });
   }
 }

@@ -32,12 +32,6 @@
   margin: 0px;
 }
 
-.footer-list {
-  padding-top: 8px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .tasks {
   display: flex;
   flex-direction: column;

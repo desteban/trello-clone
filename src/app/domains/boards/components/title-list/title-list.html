@@ -1,5 +1,18 @@
 <h2 class="container-title-list">
-  <button [id]="buttonId" (click)="clickButton()" [class.hidden]="showInput">{{ title }}</button>
+  <button
+    [id]="buttonId"
+    (click)="clickButton()"
+    class="flex items-center w-full"
+    [class.hidden]="showInput"
+  >
+    @if ( leftIcon ) {
+    <fa-icon [icon]="leftIcon"></fa-icon>
+    }
+    {{ title }}
+    @if ( rightIcon ) {
+    <fa-icon [icon]="rightIcon"></fa-icon>
+    }
+  </button>
 
   <form
     (submit)="submit($event)"
@@ -11,7 +24,7 @@
     <div>
       <component-input-field
         [id]="id"
-        [placeholder]="title ?? ''"
+        [placeholder]="title"
         autoComplete="off"
         formControlName="title"
         [error]="MatchError('title')"
