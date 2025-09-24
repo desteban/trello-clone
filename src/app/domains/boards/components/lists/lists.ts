@@ -50,6 +50,7 @@ export class Lists {
   @Output() addList = new EventEmitter<BoardList>();
   @Output() selectedTask = new EventEmitter<selectedTask>();
   @Output() addTask: EventEmitter<NewTaskWithList> = new EventEmitter<NewTaskWithList>();
+  @Output() updateList: EventEmitter<BoardList[]> = new EventEmitter<BoardList[]>();
   private fb: FormBuilder = inject(FormBuilder);
   newTaskForm = this.fb.nonNullable.group({
     title: ['', [Validators.required]],
@@ -71,6 +72,9 @@ export class Lists {
         event.currentIndex
       );
     }
+
+    console.log('board', this.boardList);
+    this.updateList.emit(this.boardList);
   }
 
   addNewList(e: Event) {

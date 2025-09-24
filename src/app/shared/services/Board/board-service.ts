@@ -127,4 +127,22 @@ export class BoardService {
     this.boards = newBoards;
     return of(board);
   }
+
+  public updateList(list: BoardList[], boardSlug: string): Observable<boolean> {
+    const newBoards = this.boards.map((board) => {
+      if (board.slug !== boardSlug) return board;
+
+      const newBoard = { ...board };
+      newBoard.lists = list;
+      return newBoard;
+    });
+
+    const save: boolean = this.lsService.setItem(this.boardsKey, newBoards);
+    if (!save) {
+      return throwError(() => new Error('No pudimos actualizar el tablero'));
+    }
+
+    this.boards = newBoards;
+    return of(true);
+  }
 }

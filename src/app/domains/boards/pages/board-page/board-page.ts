@@ -126,4 +126,12 @@ export class BoardPage implements OnInit, OnDestroy {
       },
     });
   }
+
+  updateLists(lists: BoardList[]): void {
+    if (!this.board) {
+      return;
+    }
+
+    this.boardService.updateList(lists, this.board.slug);
+  }
 }
