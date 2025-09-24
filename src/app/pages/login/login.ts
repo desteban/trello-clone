@@ -4,6 +4,7 @@ import { InputField, InputFieldVariants } from '../../components/input-field/inp
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@shared/services/Auth/auth-service';
+import { AppRoutes } from '@shared/Routes';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { AuthService } from '@shared/services/Auth/auth-service';
   styleUrl: './login.css',
 })
 export class Login {
-  private router: Router = inject(Router);
+  private router = inject(Router);
   private authService: AuthService = inject(AuthService);
   private fb: FormBuilder = inject(FormBuilder);
   loginForm: FormGroup = this.fb.group({
@@ -38,7 +39,7 @@ export class Login {
     return InputFieldVariants;
   }
 
-  Submit(e: Event) {
+  login(e: Event) {
     e.preventDefault();
 
     this.loginForm.markAllAsTouched();
@@ -49,8 +50,13 @@ export class Login {
 
     const data = this.loginForm.value;
     this.authService.login(data).subscribe({
-      next: (tokens) => {
-        this.router.navigate(['/boards']);
+      next: (value) => {
+        if (!value) {
+          return;
+        }
+
+        const route: string = '/' + AppRoutes.boards;
+        this.router.navigate([route]);
       },
     });
   }

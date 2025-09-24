@@ -37,7 +37,8 @@ export class AuthService {
   public login(props: LoginProps): Observable<boolean> {
     const token: Tokens = { accessToken: this.generateToken() };
     this.lsService.setItem(this.key, token.accessToken);
-    this.router.navigate(['/boards']);
+    this._accessToken = token.accessToken;
+
     return of(true);
   }
 

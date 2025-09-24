@@ -4,25 +4,29 @@ import { Login } from './pages/login/login';
 import { Boards } from './pages/boards/boards';
 import { BoardPage } from '@domains/boards/pages/board-page/board-page';
 import { authGuard } from '@shared/Guards/AuthGuard/auth-guard-guard';
+import { AppRoutes } from '@shared/Routes';
+import { publicAccessGuard } from '@shared/Guards/AuthGuard/public-access-guard';
 
 export const routes: Routes = [
   {
     path: '',
     component: Home,
+    canActivate: [publicAccessGuard],
   },
   {
-    path: 'login',
+    path: AppRoutes.login,
     component: Login,
     title: 'Ingresar | TrelloClone',
+    canActivate: [publicAccessGuard],
   },
   {
-    path: 'boards',
+    path: AppRoutes.boards,
     component: Boards,
     title: 'Tableros',
     canActivate: [authGuard],
   },
   {
-    path: 'board/:id',
+    path: `${AppRoutes.board}/:id`,
     component: BoardPage,
     canActivate: [authGuard],
   },

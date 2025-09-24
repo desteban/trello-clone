@@ -9,7 +9,7 @@
       />
     </picture>
     <h1 class="h4 text-center">Inicia sesión para continuar</h1>
-    <form (submit)="Submit($event)" [formGroup]="loginForm" class="form space-y-5">
+    <form (submit)="login($event)" [formGroup]="loginForm" class="form space-y-5">
       <div>
         <component-input-field
           id="username"
@@ -39,8 +39,4 @@
       </component-button>
     </form>
   </section>
-
-  <picture class="block absolute bottom-0 left-8 z-0 aspect-[400/309] max-w-[250px]">
-    <img src="assets/backgrounds/table.svg" alt="" />
-  </picture>
 </main>

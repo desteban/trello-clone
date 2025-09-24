@@ -1,5 +1,6 @@
 export const AppRoutes = {
-  index: '/',
-  boards: '/boards',
-  board: '/board',
+  index: '',
+  login: 'login',
+  boards: 'boards',
+  board: 'board',
 };
