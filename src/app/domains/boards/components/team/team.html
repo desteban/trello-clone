@@ -1,0 +1,10 @@
+<div class="flex -space-x-4 rtl:space-x-reverse">
+  @for (user of team; track $index) {
+  <img
+    class="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800"
+    [src]="user.avatar"
+    [alt]="user.name"
+    [title]="user.name"
+  />
+  }
+</div>

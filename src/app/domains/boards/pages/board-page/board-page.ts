@@ -13,6 +13,7 @@ import {
 } from '@domains/boards/components/lists/lists';
 import { AddCommentProps, ModalTask } from '@domains/boards/components/modal-task/modal-task';
 import { Comment, CreateCommentDTO } from '@app/models/Comment';
+import { User } from '@app/models/User';
 
 @Component({
   selector: 'app-board-page',
@@ -44,6 +45,10 @@ export class BoardPage implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.loadBackground(null);
+  }
+
+  get team(): User[] {
+    return this.board?.team ?? [];
   }
 
   get nameBoard(): string {
