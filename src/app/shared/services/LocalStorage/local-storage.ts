@@ -17,7 +17,8 @@ export class LocalStorage {
     const localStorageData = this.getKey(key);
 
     if (localStorageData === null) {
-      const saveData: string = JSON.stringify(data);
+      // const saveData: string = JSON.stringify(data);
+      const saveData = data;
       this.setItem(key, saveData);
       return data;
     }

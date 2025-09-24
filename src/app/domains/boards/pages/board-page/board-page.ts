@@ -14,6 +14,7 @@ import {
 import { AddCommentProps, ModalTask } from '@domains/boards/components/modal-task/modal-task';
 import { Comment, CreateCommentDTO } from '@app/models/Comment';
 import { User } from '@app/models/User';
+import { map, switchMap, throwError, zip } from 'rxjs';
 
 @Component({
   selector: 'app-board-page',
@@ -28,14 +29,22 @@ export class BoardPage implements OnInit, OnDestroy {
   board: Board | null = null;
   slug: string | null = this.route.snapshot.paramMap.get('id');
   loading: boolean = false;
-  selectTask: selectedTask | null = null;
+  private _selectTask: selectedTask | null = null;
 
   showTask(task: selectedTask) {
-    this.selectTask = task;
+    this._selectTask = task;
+  }
+
+  get selectTask(): CardBoard | null {
+    return this._selectTask?.task ?? null;
+  }
+
+  get selectedTaskListId(): string {
+    return this._selectTask?.index ?? '';
   }
 
   closeTask(task: CardBoard) {
-    this.selectTask = null;
+    this._selectTask = null;
   }
 
   ngOnInit(): void {
@@ -109,12 +118,41 @@ export class BoardPage implements OnInit, OnDestroy {
     const dto: CreateCommentDTO = {
       comment: comment.comment,
       taskId: comment.taskId,
-      idList: this.selectTask?.index.toString() ?? '',
+      idList: this._selectTask?.index.toString() ?? '',
       boardSlug: this.board?.slug ?? '',
     };
 
-    this.boardService.newComment(dto);
+    const addCommentService = this.boardService.newComment(dto);
+
+    addCommentService
+      .pipe(
+        switchMap((data) => {
+          if (!data || this.slug === null) {
+            return throwError(() => new Error('No pudimos guardar el comentario'));
+          }
+
+          const newBoard = this.boardService.getBoard(this.slug);
+          return zip(addCommentService, newBoard).pipe(map(([save, board]) => ({ save, board })));
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          this.board = data.board;
+          const list = data.board.lists.find((list) => list.id === dto.idList);
+          const newTaskSelected = list?.cards.find((card) => card.id === dto.taskId);
+
+          if (!newTaskSelected) return;
+
+          this._selectTask = { index: dto.taskId, task: newTaskSelected };
+        },
+        error: (err) => {
+          console.error(err);
+          alert('Algo salió mal');
+        },
+      });
   }
+
+  private addNewComment(comment: AddCommentProps): void {}
 
   addTask(data: NewTaskWithList) {
     if (!this.board) {

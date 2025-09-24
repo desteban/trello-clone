@@ -50,9 +50,7 @@ export class Login {
     const data = this.loginForm.value;
     this.authService.login(data).subscribe({
       next: (tokens) => {
-        console.log('tokens', tokens);
-
-        this.router.navigate(['boards']);
+        this.router.navigate(['/boards']);
       },
     });
   }

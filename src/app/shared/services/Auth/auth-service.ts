@@ -21,7 +21,7 @@ export class AuthService {
   private lsService: LocalStorage = inject(LocalStorage);
   private _accessToken: string | null = null;
   private router: Router = inject(Router);
-  private _session: User | null = null
+  private _session: User | null = null;
 
   constructor() {
     const token = this.lsService.find(this.key);
@@ -34,10 +34,11 @@ export class AuthService {
     return this._accessToken;
   }
 
-  public login(props: LoginProps): Observable<Tokens> {
+  public login(props: LoginProps): Observable<boolean> {
     const token: Tokens = { accessToken: this.generateToken() };
     this.lsService.setItem(this.key, token.accessToken);
-    return of(token);
+    this.router.navigate(['/boards']);
+    return of(true);
   }
 
   public logout() {

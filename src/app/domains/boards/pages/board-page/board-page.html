@@ -16,7 +16,7 @@
   </div>
 </shared-layouts-screen-layout>
 <boards-components-modal-task
-  [selectedTask]="selectTask?.task ?? null"
+  [selectedTask]="selectTask"
   (taskClosed)="closeTask($event)"
   (addNewComment)="addComment($event)"
 />

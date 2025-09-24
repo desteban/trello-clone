@@ -55,7 +55,6 @@ export class BoardService {
 
     // Crea una copia del array de comentarios y añade el nuevo.
     const updatedComments = card.comments ? [...card.comments, comment] : [comment];
-    console.log('updated', updatedComments);
 
     // Devuelve una nueva copia de todo el array de `boards` con el cambio.
     const updatedBoards = this.boards.map((b) =>
@@ -75,8 +74,13 @@ export class BoardService {
           }
         : b
     );
+
+    const save: boolean = this.lsService.setItem(this.boardsKey, updatedBoards);
+    if (!save) {
+      return throwError(() => new Error('Error al guardar el comentario'));
+    }
+
     this.boards = updatedBoards;
-    this.lsService.setItem(this.boardsKey, updatedBoards);
     return of(true);
   }
 

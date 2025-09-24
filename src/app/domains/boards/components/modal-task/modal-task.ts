@@ -69,6 +69,7 @@ export class ModalTask implements OnChanges {
     const taskChanges: SimpleChange = changes['selectedTask'];
     if (taskChanges && taskChanges.currentValue) {
       this.onChangeSelectedTask(taskChanges.currentValue);
+      this.formComment.reset();
     }
   }
 
