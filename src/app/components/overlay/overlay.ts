@@ -14,6 +14,8 @@ export class Overlay implements OnChanges {
   @Input({ required: false }) class: null | string | undefined = undefined;
   @Input() fullScreen: boolean = false;
   @Output() click = new EventEmitter<boolean>();
+  @Output() onOpen = new EventEmitter();
+  @Output() onDetach = new EventEmitter();
   private _isOpen: boolean = this.isOpen;
   animatedClass: 'hide-overlay' | 'show-overlay' = 'show-overlay';
   id: string = 'panel-' + Math.random();
@@ -30,6 +32,9 @@ export class Overlay implements OnChanges {
 
   toggleOpen(): void {
     this._isOpen = !this._isOpen;
+    if (this._isOpen === true) {
+      this.onOpen.emit();
+    }
   }
 
   public closePanel(): void {
@@ -50,6 +55,7 @@ export class Overlay implements OnChanges {
 
   onPanelDetached(): void {
     console.log('detach');
+    this.onDetach.emit();
   }
 
   getClassFull(): string {

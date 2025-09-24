@@ -1,9 +1,18 @@
 import { inject, Injectable } from '@angular/core';
-import { Board, BoardItem, BoardList, defaultBoards, mockBoards } from '@app/models/Board';
+import {
+  Board,
+  BoardItem,
+  BoardList,
+  CreateBoardDTO,
+  defaultBoards,
+  mockBoards,
+} from '@app/models/Board';
 import { Observable, of, throwError } from 'rxjs';
 import { LocalStorage } from '../LocalStorage/local-storage';
 import { CreateCommentDTO } from '@app/models/Comment';
 import { newTaskDTO } from '@domains/boards/components/lists/lists';
+import { v4 } from 'uuid';
+import { mockUsers } from '@app/models/User';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +40,25 @@ export class BoardService {
     this.boards = board;
   }
 
+  public createBoard(data: CreateBoardDTO): Observable<Board> {
+    const newBoards = this.boards;
+    const slug: string = v4();
+    const user = mockUsers[0];
+    const newBoard: Board = { lists: [], slug, team: [user], ...data };
+    newBoards.push(newBoard);
+    const save: boolean = this.lsService.setItem(this.boardsKey, newBoards);
+    if (!save) {
+      return throwError(() => new Error('No pudimos crear el tablero'));
+    }
+
+    this.boards = newBoards;
+    return of(newBoard);
+  }
+
   public getBoards() {
-    return this.mockBoards;
+    const boards = this.lsService.findOrCreate(this.boardsKey, [...defaultBoards]) as Board[];
+    const boardsMockup: BoardItem[] = boards.map((board) => ({ ...board, name: board.title }));
+    return boardsMockup;
   }
 
   public getBoard(slug: string): Observable<Board> {

@@ -1,0 +1,20 @@
+<header class="shadow-lg px-4 bg-background">
+  <nav class="flex justify-between items-center h-14">
+    <div class="">
+      <a [routerLink]="[homeRoute]">
+        <picture class="aspect-square lg:aspect-video h-8 lg:h-11 flex items-center">
+          <source media="(min-width: 1024px)" srcset="assets/trello/png/Trello_logo_light.png" />
+          <source
+            media="(prefers-color-schema: dark)"
+            srcset="assets/trello/png/Trello_logo_center_dark.png"
+          />
+          <img src="assets/trello/png/Trello_logo_center_light.png" alt="Logo de Trello" />
+        </picture>
+      </a>
+    </div>
+    <!--  -->
+    <div>
+      <a [routerLink]="[loginRoute]">Ingresar</a>
+    </div>
+  </nav>
+</header>

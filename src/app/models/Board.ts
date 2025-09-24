@@ -9,6 +9,8 @@ export interface Board {
   lists: BoardList[];
 }
 
+export interface CreateBoardDTO extends Omit<Board, 'slug' | 'team' | 'lists'> {}
+
 export interface BoardList {
   id: string;
   title: string;

@@ -66,10 +66,12 @@ export class InputField implements ControlValueAccessor, OnChanges {
 
     const { currentValue } = change;
     if (currentValue === true) {
-      const el = document.querySelector(`input#${this.id}`) as HTMLInputElement;
-      el.focus();
+      setTimeout(() => {
+        const el = document.querySelector(`input#${this.id}`) as HTMLInputElement;
+        el.focus();
 
-      this.inputElement?.nativeElement.focus();
+        this.inputElement?.nativeElement.focus();
+      }, 5);
     }
   }
 

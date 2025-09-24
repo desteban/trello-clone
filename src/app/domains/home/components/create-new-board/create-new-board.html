@@ -1,0 +1,41 @@
+<component-overlay
+  (onOpen)="openOverlay()"
+  (onDetach)="closeOverlay()"
+  class="h-full"
+  [isOpen]="showForm"
+>
+  <div
+    trigger
+    class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
+  >
+    <span>Crear tablero nuevo</span>
+  </div>
+
+  <div panel class="bg-background shadow rounded-lg p-3 border border-gray-200 my-3">
+    <form (submit)="submitForm($event)" [formGroup]="newBoardForm" class="space-y-3.5">
+      <div>
+        <component-input-field
+          id="title-board"
+          placeholder="Nombre del tablero"
+          label="Titulo"
+          formControlName="title"
+          [focus]="showForm"
+          autoComplete="off"
+        />
+      </div>
+
+      <div>
+        <component-input-field
+          id="src-image"
+          placeholder="https://example.com/image.jpg"
+          label="Imagen de fondo"
+          formControlName="image"
+        />
+      </div>
+
+      <div>
+        <component-button type="submit">Crear</component-button>
+      </div>
+    </form>
+  </div>
+</component-overlay>

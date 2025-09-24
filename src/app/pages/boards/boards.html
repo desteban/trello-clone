@@ -12,11 +12,8 @@
           @for (board of boards; track $index) {
           <boards-item-board [board]="board"></boards-item-board>
           }
-          <div
-            class="h-full w-full flex items-center justify-center bg-neutral-100 rounded-lg transition-colors duration-150 hover:bg-neutral-200"
-          >
-            <span>Crear tablero nuevo</span>
-          </div>
+
+          <home-create-new-board class="h-full" />
         </div>
       </section>
     </div>

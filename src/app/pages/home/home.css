@@ -1,0 +1,8 @@
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
