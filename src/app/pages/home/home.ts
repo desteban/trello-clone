@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { Header } from "@domains/home/components/header/header";
+import { Header } from '@domains/home/components/header/header';
+import { ProductivitySlider } from "@domains/home/components/productivity-slider/productivity-slider";
 
 @Component({
   selector: 'app-home',
-  imports: [Header],
+  imports: [Header, ProductivitySlider],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
 })
-export class Home {
-
-}
+export class Home {}
