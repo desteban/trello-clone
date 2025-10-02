@@ -21,6 +21,12 @@ import {
   faComments,
   faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebookF,
+  faInstagram,
+  faXTwitter,
+  faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
 
 export const AppIcons = {
   link: faArrowUpRightFromSquare,
@@ -49,4 +55,9 @@ export const AppIcons = {
 
   comments: faComments,
   send: faPaperPlane,
+
+  facebook: faFacebookF,
+  instagram: faInstagram,
+  twitter: faXTwitter,
+  linkedin: faLinkedinIn,
 };
