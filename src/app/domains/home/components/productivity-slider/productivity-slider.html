@@ -8,24 +8,29 @@
       (swiperslidechange)="onSlideChange($event)"
     >
       <swiper-slide class="">
-        <picture
-          class="flex rounded-xl overflow-hidden bg-neutral-100 pt-5 pl-6 md:pt-10 md:pl-11 min-h-[420px] relative"
-        >
+        <picture class="flex rounded-xl overflow-hidden bg-neutral-100 min-h-[420px] relative">
           <img
-            src="assets/board.webp"
+            src="assets/inbox-slider.webp"
             alt="Tablero de ejemplo"
-            class="h-full min-h-[420px] rounded-xl absolute object-cover"
+            class="h-full w-full min-h-[420px] absolute object-cover"
           />
         </picture>
       </swiper-slide>
       <swiper-slide>
-        <picture
-          class="flex rounded-xl overflow-hidden bg-blue-100 pt-5 pl-6 md:pt-10 md:pl-11 min-h-[420px] relative"
-        >
+        <picture class="flex rounded-xl overflow-hidden bg-blue-100 min-h-[420px] relative">
           <img
-            src="assets/board2.webp"
+            src="assets/board-slider.webp"
             alt="Tablero de ejemplo"
-            class="h-full min-h-[420px] rounded-xl absolute object-cover"
+            class="h-full w-full min-h-[420px] absolute object-cover"
+          />
+        </picture>
+      </swiper-slide>
+      <swiper-slide>
+        <picture class="flex rounded-xl overflow-hidden bg-blue-100 min-h-[420px] relative">
+          <img
+            src="assets/inbox-slider.webp"
+            alt="Tablero de ejemplo"
+            class="h-full w-full min-h-[420px] absolute object-cover"
           />
         </picture>
       </swiper-slide>
@@ -48,6 +53,16 @@
         <p>
           Your to-do list may be long, but it can be manageable! Keep tabs on everything from
           "to-dos to tackle" to "mission accomplished!”
+        </p>
+      </div>
+    </button>
+
+    <button class="!py-5" (click)="goToSlide(2)" [ngClass]="currentSlide === 2 ? activeCard : ''">
+      <div class="text-left">
+        <h3 class="!mt-2">Planner</h3>
+        <p>
+          Drag, drop, get it done. Snap your top tasks into your calendar and make time for what
+          truly matters.
         </p>
       </div>
     </button>

@@ -1,5 +1,5 @@
 <div class="relative">
-  <div class="sticky top-0">
+  <div class="sticky top-0 z-50">
     <home-components-header />
   </div>
 
@@ -74,16 +74,65 @@
       </div>
     </section>
 
-    <section aria-labelledby="more-with-trello" class="pt-40 pb-10 mt-10">
-      <div class="container mx-auto">
-        <div>
-          <span>WORK SMARTER</span>
-          <h2 id="more-with-trello">Do more with Trello</h2>
-          <p>
-            Customize the way you organize with easy integrations, automation, and mirroring of your
-            to-dos across multiple locations.
-          </p>
-        </div>
+    <section aria-labelledby="more-with-trello" class="pt-40 pb-10 mt-10 container mx-auto px-6">
+      <div>
+        <span>WORK SMARTER</span>
+        <h2 id="more-with-trello">Do more with Trello</h2>
+        <p>
+          Customize the way you organize with easy integrations, automation, and mirroring of your
+          to-dos across multiple locations.
+        </p>
+      </div>
+
+      <div class="flex gap-4 pt-5">
+        <home-component-more-cards
+          src="assets/Integration.svg"
+          alt="puzzle pieces"
+          title="Integrations"
+          description="Connect the apps you are already using into your Trello workflow or add a Power-Up to
+              fine-tune your specific needs."
+        >
+          <a
+            href="https://trello.com/integrations"
+            class="px-4 py-3 border border-blue-600 rounded-lg !text-black !no-underline hover:bg-blue-100 transition-colors duration-150"
+            rel="noopener"
+            target="_blank"
+          >
+            Browse Integrations
+          </a>
+        </home-component-more-cards>
+
+        <home-component-more-cards
+          src="assets/Autodev.svg"
+          alt="gears"
+          title="Automation"
+          description="No-code automation is built into every Trello board. Focus on the work that matters most and let the robots do the rest.."
+        >
+          <a
+            href="https://trello.com/butler-automation"
+            class="px-4 py-3 border border-blue-600 rounded-lg !text-black !no-underline hover:bg-blue-100 transition-colors duration-150"
+            rel="noopener"
+            target="_blank"
+          >
+            Get to know Automation
+          </a>
+        </home-component-more-cards>
+
+        <home-component-more-cards
+          src="assets/Project_management.svg"
+          alt="puzzle pieces"
+          title="Card mirroring"
+          description="View all your to-dos from multiple boards in one place. Mirror a card to keep track of work wherever you need it!"
+        >
+          <a
+            href="https://trello.com/pricing"
+            class="px-4 py-3 border border-blue-600 rounded-lg !text-black !no-underline hover:bg-blue-100 transition-colors duration-150"
+            rel="noopener"
+            target="_blank"
+          >
+            Compare plans
+          </a>
+        </home-component-more-cards>
       </div>
     </section>
   </main>
