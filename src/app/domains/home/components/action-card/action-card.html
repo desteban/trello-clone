@@ -1,0 +1,13 @@
+<div
+  class="bg-white rounded-xl p-6 md:flex gap-8 items-center"
+  [ngClass]="rightImage ? 'flex-row-reverse' : ''"
+>
+  <picture class="rounded-xl aspect-[135/73] w-full">
+    <img [src]="src" [alt]="alt" class="h-full w-full" />
+  </picture>
+
+  <div class="px-3 w-full">
+    <h3>{{ title }}</h3>
+    <p class="text-black text-xl">{{ description }}</p>
+  </div>
+</div>

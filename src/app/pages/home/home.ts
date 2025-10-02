@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Header } from '@domains/home/components/header/header';
 import { ProductivitySlider } from "@domains/home/components/productivity-slider/productivity-slider";
+import { ActionCard } from "@domains/home/components/action-card/action-card";
 
 @Component({
   selector: 'app-home',
-  imports: [Header, ProductivitySlider],
+  imports: [Header, ProductivitySlider, ActionCard],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

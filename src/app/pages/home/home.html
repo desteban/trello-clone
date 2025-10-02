@@ -33,14 +33,58 @@
     </section>
 
     <div class="container mx-auto my-8 py-2 px-3">
-      <p class="m-0">Trello 101</p>
-      <h2 class="text-xl !mt-1">Your productivity powerhouse</h2>
-      <p>
-        Stay organized and efficient with Inbox, Boards, and Planner. Every to-do, idea, or
-        responsibility—no matter how small—finds its place, keeping you at the top of your game.
-      </p>
+      <section class="pb-10">
+        <p class="m-0">Trello 101</p>
+        <h2 class="text-xl !mt-1">Your productivity powerhouse</h2>
+        <p>
+          Stay organized and efficient with Inbox, Boards, and Planner. Every to-do, idea, or
+          responsibility—no matter how small—finds its place, keeping you at the top of your game.
+        </p>
 
-      <home-component-productivity-slider />
+        <home-component-productivity-slider />
+      </section>
     </div>
+
+    <section class="bg-blue-600 text-white" aria-labelledby="action">
+      <div class="container mx-auto flex flex-col px-7">
+        <div class="text-center py-6">
+          <h2 id="action" class="!text-white">From message to action</h2>
+          <p class="mx-auto text-xl">
+            Quickly turn communication from your favorite apps into to-dos, keeping all your
+            discussions and tasks organized in one place.
+          </p>
+        </div>
+
+        <home-component-action-card
+          class="mb-6"
+          src="assets/email-todos.webp"
+          alt="email todos"
+          title="EMAIL MAGIC"
+          description="Easily turn your emails into to-dos! Just forward them to your Trello Inbox, and they’ll be transformed by Atlassian Intelligence (AI) into organized to-dos with all the links you need."
+        />
+
+        <home-component-action-card
+          class="relative -mb-32 z-[1] rounded-xl shadow-lg"
+          [rightImage]="true"
+          src="assets/slackteams-to-inbox.webp"
+          alt="email todos"
+          title="MESSAGE APP SORCERY"
+          description="Need to follow up on a message from Slack or Microsoft Teams? Send it directly to your Trello board! Your favorite app interface lets you save messages that appear in your Trello Inbox with AI-generated summaries and links."
+        />
+      </div>
+    </section>
+
+    <section aria-labelledby="more-with-trello" class="pt-40 pb-10 mt-10">
+      <div class="container mx-auto">
+        <div>
+          <span>WORK SMARTER</span>
+          <h2 id="more-with-trello">Do more with Trello</h2>
+          <p>
+            Customize the way you organize with easy integrations, automation, and mirroring of your
+            to-dos across multiple locations.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </div>
