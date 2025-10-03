@@ -1,7 +1,7 @@
 .modal-container {
   display: flex;
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
   overflow: hidden;
   border-top: 1px solid var(--color-neutral-700);
 }
@@ -12,8 +12,7 @@
 }
 
 .content {
-  flex: 1 1 auto;
-  border-right: 1px solid var(--color-neutral-400);
+  flex: 1 0 auto;
 }
 
 .aside {
@@ -26,4 +25,15 @@
 
 .comments-wrapper {
   flex: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-container {
+    flex-direction: row;
+  }
+
+  .content {
+    flex: 1 1 auto;
+    border-right: 1px solid var(--color-neutral-400);
+  }
 }
